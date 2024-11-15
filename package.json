@@ -1,0 +1,9 @@
+{
+  "name": "WATCHA_CLONE",
+  "version": "1.0.0",
+  "description": "watcha clone to study",
+  "main": "index.js",
+  "repository": "https://github.com/Nangniya/WATCHA_CLONE.git",
+  "author": "김나연 <apinksky00@gmail.com>",
+  "license": "MIT"
+}
