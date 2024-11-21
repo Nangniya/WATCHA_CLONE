@@ -5,5 +5,10 @@
   "main": "index.js",
   "repository": "https://github.com/Nangniya/WATCHA_CLONE.git",
   "author": "김나연 <apinksky00@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.25.9",
+    "@babel/preset-typescript": "^7.26.0"
+  }
 }
