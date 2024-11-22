@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const { DefinePlugin } = require("webpack");
+const Dotenv = require("dotenv-webpack");
 
 const isProduction = process.env.NODE_ENV == "production";
 
@@ -28,14 +28,8 @@ const config = {
         configFile: path.resolve(__dirname, "./tsconfig.json"),
       },
     }),
-    new DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify(
-        process.env.NODE_ENV || "development"
-      ),
-      "process.env.API_URL": JSON.stringify(
-        process.env.API_URL || "http://localhost:3000"
-      ),
-      "process.env.APP_PHASE": JSON.stringify(process.env.APP_PHASE || "local"),
+    new Dotenv({
+      path: `./.env.${process.env.APP_PHASE || "local"}`, // .env 파일 경로 설정
     }),
   ],
   module: {
