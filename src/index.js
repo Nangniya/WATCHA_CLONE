@@ -1,11 +1,5 @@
-const arrowFunction = function () {
-  return "Hello, Babel!";
-};
+import { add } from "./util";
 
-const promiseExample = new Promise(function (resolve, reject) {
-  setTimeout(function () {
-    return resolve("Promise resolved!");
-  }, 1000);
-});
-promiseExample.then(console.log);
-console.log(arrowFunction());
+console.log("메인 스크립트 실행 중");
+const result = add(2, 3);
+console.log(`add(2, 3)의 결과: ${result}`);
