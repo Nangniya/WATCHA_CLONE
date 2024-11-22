@@ -6,7 +6,12 @@
   "repository": "https://github.com/Nangniya/WATCHA_CLONE.git",
   "author": "김나연 <apinksky00@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir dist --presets=@babel/env"
+  },
   "devDependencies": {
+    "@babel/cli": "^7.25.9",
+    "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.25.9",
     "@babel/preset-typescript": "^7.26.0"
