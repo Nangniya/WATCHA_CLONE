@@ -7,7 +7,12 @@
   "author": "김나연 <apinksky00@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "babel src --out-dir dist"
+    "type-check": "tsc -p ./tsconfig.build.json",
+    "build": "npm run type-check && babel src --out-dir dist --extensions \".js,.ts\""
+  },
+  "dependencies": {
+    "core-js": "^3.39.0",
+    "react": "^18.3.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.25.9",
@@ -16,10 +21,7 @@
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.25.9",
     "@babel/preset-typescript": "^7.26.0",
-    "@babel/runtime-corejs3": "^7.26.0"
-  },
-  "dependencies": {
-    "core-js": "^3.39.0",
-    "react": "^18.3.1"
+    "@babel/runtime-corejs3": "^7.26.0",
+    "typescript": "^5.6.3"
   }
 }
