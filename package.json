@@ -7,12 +7,13 @@
   "author": "김나연 <apinksky00@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "type-check": "tsc -p ./tsconfig.build.json",
-    "build": "npm run type-check && babel src --out-dir dist --extensions \".js,.ts\""
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "core-js": "^3.39.0",
-    "react": "^18.3.1"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.25.9",
@@ -22,8 +23,15 @@
     "@babel/preset-react": "^7.25.9",
     "@babel/preset-typescript": "^7.26.0",
     "@babel/runtime-corejs3": "^7.26.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
     "@webpack-cli/generators": "^3.0.7",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.15.0",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
     "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
     "typescript": "^5.6.3",
     "webpack": "^5.96.1",

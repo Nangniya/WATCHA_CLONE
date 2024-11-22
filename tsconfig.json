@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "module": "commonjs",
-    "target": "es5",
+    "target": "ES6",
+    "module": "ESNext",
+    "jsx": "react",
     "strict": true,
-    "esModuleInterop": true
+    "noEmit": true, // 출력 파일을 생성하지 않음 (Webpack이 처리하므로)
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*"],
-  "exclude": []
+  "exclude": ["node_modules"]
 }
