@@ -16,6 +16,8 @@ const config = {
     host: "localhost",
     port: 3000,
     historyApiFallback: true,
+    hot: true,
+    liveReload: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -24,6 +26,7 @@ const config = {
       inject: "body",
     }),
     new ForkTsCheckerWebpackPlugin({
+      async: false,
       typescript: {
         configFile: path.resolve(__dirname, "./tsconfig.json"),
       },
