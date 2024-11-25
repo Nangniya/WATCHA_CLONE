@@ -39,7 +39,7 @@ const config = {
     rules: [
       {
         test: /\.(ts|tsx|js|jsx)$/,
-        exclude: /node_modules/,
+        exclude: /node_modules\/(?!(@tanstack\/react-query)\/).*/,
         use: {
           loader: "babel-loader",
         },
