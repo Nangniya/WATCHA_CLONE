@@ -1,16 +1,3 @@
-## 📝 PR Type
-
-<!-- 해당되는 항목의 [ ]를 [x]로 변경해주세요. -->
-
-- [ ] Feature
-- [ ] BugFix
-- [ ] Code style update (formatting, local variables)
-- [ ] Refactoring (no functional changes, no API changes)
-- [ ] Build related changes
-- [ ] CI related changes
-- [ ] Documentation content changes
-- [ ] Other... Please describe:
-
 ## ✨ What is this PR?
 
 <!-- PR에 대한 간단한 설명을 적어주세요 -->
