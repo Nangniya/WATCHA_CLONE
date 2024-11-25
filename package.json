@@ -11,7 +11,7 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
-    "core-js": "^3.39.0",
+    "@babel/runtime": "^7.26.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -28,6 +28,7 @@
     "@types/react-dom": "^18.3.1",
     "@webpack-cli/generators": "^3.0.7",
     "babel-loader": "^9.2.1",
+    "core-js": "^3.39.0",
     "css-loader": "^7.1.2",
     "dotenv-webpack": "^8.1.0",
     "eslint": "^9.15.0",
