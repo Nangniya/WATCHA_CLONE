@@ -35,7 +35,7 @@ const App: React.FC<AppProps> = ({ message }) => {
     <>
       <h1>{message}</h1>
       <div>{`Latest Movie : ${latestMovie}`}</div>
-      <p>Hello, wolrd!</p>
+      <p>Hello, wolrd</p>
     </>
   );
 };
