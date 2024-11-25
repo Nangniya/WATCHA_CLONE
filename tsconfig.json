@@ -5,7 +5,8 @@
     "jsx": "react",
     "strict": true,
     "noEmit": true, // 출력 파일을 생성하지 않음 (Webpack이 처리하므로)
-    "skipLibCheck": true,
+    "skipLibCheck": true, // 라이브러리의 타입 검사를 건너뜀
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*"],

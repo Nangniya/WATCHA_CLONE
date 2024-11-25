@@ -24,8 +24,9 @@ const config = {
       inject: "body",
     }),
     new ForkTsCheckerWebpackPlugin({
-      typescript: {
-        configFile: path.resolve(__dirname, "./tsconfig.json"),
+      async: false,
+      eslint: {
+        files: "./src/**/*.{ts,tsx,js,jsx}", // 린트 검사를 수행할 파일 지정
       },
     }),
     new Dotenv({
@@ -36,7 +37,7 @@ const config = {
     rules: [
       {
         test: /\.(ts|tsx|js|jsx)$/,
-        exclude: /node_modules/,
+        exclude: /node_modules\/(?!(@tanstack\/react-query)\/).*/,
         use: {
           loader: "babel-loader",
         },
