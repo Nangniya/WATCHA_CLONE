@@ -16,6 +16,8 @@ const config = {
     host: "localhost",
     port: 3000,
     historyApiFallback: true,
+    hot: true,
+    liveReload: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -25,8 +27,8 @@ const config = {
     }),
     new ForkTsCheckerWebpackPlugin({
       async: false,
-      eslint: {
-        files: "./src/**/*.{ts,tsx,js,jsx}", // 린트 검사를 수행할 파일 지정
+      typescript: {
+        configFile: path.resolve(__dirname, "./tsconfig.json"),
       },
     }),
     new Dotenv({
@@ -37,7 +39,10 @@ const config = {
     rules: [
       {
         test: /\.(ts|tsx|js|jsx)$/,
-        exclude: /node_modules\/(?!(@tanstack\/react-query)\/).*/,
+        exclude: [
+          /node_modules\/(?!(@tanstack\/react-query)\/).*/,
+          /node_modules[\\/]core-js/,
+        ],
         use: {
           loader: "babel-loader",
         },
