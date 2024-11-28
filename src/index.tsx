@@ -8,6 +8,6 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <App message="Hello, TypeScript and Webpack!" />
+    <App />
   </React.StrictMode>,
 );

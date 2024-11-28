@@ -17,6 +17,7 @@ export default [
   eslintPluginPrettierRecommended,
   {
     rules: {
+      'react/react-in-jsx-scope': 'off',
       '@typescript-eslint/no-unused-vars': 'warn',
       'prettier/prettier': ['error', { endOfLine: 'auto' }],
     },
