@@ -1,5 +1,5 @@
 const Fnb = () => {
-  return <div>Fnb</div>;
+  return <div style={{ fontFamily: 'Pretendard' }}>안녕</div>;
 };
 
 export default Fnb;
