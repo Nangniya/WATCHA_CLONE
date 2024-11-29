@@ -1,7 +1,7 @@
-import styled from '@emotion/styled';
+import { css, Global } from '@emotion/react';
 import { fontFace } from './fonts';
 
-export const GlobalStyle = styled.div`
+const globalCSS = css`
   ${fontFace}
 
   * {
@@ -12,5 +12,8 @@ export const GlobalStyle = styled.div`
       system-ui,
       Roboto,
       sans-serif;
+    box-sizing: border-box;
   }
 `;
+
+export const GlobalStyle = () => <Global styles={globalCSS} />;
