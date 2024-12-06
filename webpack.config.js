@@ -1,67 +1,74 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const Dotenv = require("dotenv-webpack");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
-const isProduction = process.env.NODE_ENV == "production";
+const isProduction = process.env.NODE_ENV == 'production';
 
 const config = {
-  entry: "./src/index.tsx",
+  entry: './src/index.tsx',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/',
   },
   devServer: {
     open: true,
-    host: "localhost",
+    host: 'localhost',
     port: 3000,
     historyApiFallback: true,
+    hot: true,
+    liveReload: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./index.html",
-      filename: "index.html",
-      inject: "body",
+      template: './index.html',
+      filename: 'index.html',
+      inject: 'body',
     }),
     new ForkTsCheckerWebpackPlugin({
       async: false,
-      eslint: {
-        files: "./src/**/*.{ts,tsx,js,jsx}", // 린트 검사를 수행할 파일 지정
+      typescript: {
+        configFile: path.resolve(__dirname, './tsconfig.json'),
       },
     }),
     new Dotenv({
-      path: `./.env.${process.env.APP_PHASE || "local"}`, // .env 파일 경로 설정
+      path: `./.env.${process.env.APP_PHASE || 'local'}`, // .env 파일 경로 설정
     }),
   ],
   module: {
     rules: [
       {
         test: /\.(ts|tsx|js|jsx)$/,
-        exclude: /node_modules\/(?!(@tanstack\/react-query)\/).*/,
+        exclude: [/node_modules\/(?!(@tanstack\/react-query)\/).*/, /node_modules[\\/]core-js/],
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
         },
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: "asset",
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2|png|jpg|gif)$/i,
+        type: 'asset',
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js"],
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
 };
 
 module.exports = () => {
   if (isProduction) {
-    config.mode = "production";
+    config.mode = 'production';
   } else {
-    config.mode = "development";
+    config.mode = 'development';
   }
   return config;
 };
