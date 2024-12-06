@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router';
-import Gnb from '../../organisms/Gnb/Gnb';
-import Fnb from '../../organisms/Fnb/Fnb';
+import Gnb from '@/components/organisms/Gnb/Gnb';
+import Fnb from '@/components/organisms/Fnb/Fnb';
 import * as S from './Layout.styles';
 
 const Layout = () => {
