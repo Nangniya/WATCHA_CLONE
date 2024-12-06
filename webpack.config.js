@@ -18,7 +18,6 @@ const config = {
     port: 3000,
     historyApiFallback: true,
     hot: true,
-    liveReload: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -52,6 +51,11 @@ const config = {
       {
         test: /\.(eot|ttf|woff|woff2|png|jpg|gif)$/i,
         type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 4 * 1024,
+          },
+        },
       },
       {
         test: /\.css$/,
