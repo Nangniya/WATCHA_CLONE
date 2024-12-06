@@ -1,6 +1,6 @@
 import * as S from './Gnb.styles';
-import Logo from '../../../assets/icons/logo.svg';
-import { PATH } from '../../../constants/path';
+import Logo from '@/assets/icons/logo.svg';
+import { PATH } from '@/constants/path';
 
 const Gnb = () => {
   return (

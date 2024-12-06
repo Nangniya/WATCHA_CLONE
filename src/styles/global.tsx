@@ -1,5 +1,5 @@
 import { css, Global } from '@emotion/react';
-import { fontFace } from './fonts';
+import { fontFace } from '@/styles/fonts';
 
 const globalCSS = css`
   ${fontFace}

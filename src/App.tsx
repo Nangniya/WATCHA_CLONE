@@ -1,6 +1,6 @@
 import { Reset } from 'styled-reset';
-import Router from './Router';
-import { GlobalStyle } from './styles/global';
+import Router from '@/Router';
+import { GlobalStyle } from '@/styles/global';
 
 const App = () => {
   return (

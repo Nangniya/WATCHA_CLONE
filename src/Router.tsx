@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
-import Layout from './components/templates/Layout/Layout';
-import Theater from './pages/browse/Theater/Theater';
-import Video from './pages/browse/Video/Video';
-import Webtoon from './pages/browse/Webtoon/Webtoon';
-import Parties from './pages/browse/Parties/Parties';
+import Layout from '@/components/templates/Layout/Layout';
+import Theater from '@/pages/browse/Theater/Theater';
+import Video from '@/pages/browse/Video/Video';
+import Webtoon from '@/pages/browse/Webtoon/Webtoon';
+import Parties from '@/pages/browse/Parties/Parties';
 
 const Router = () => {
   return (
