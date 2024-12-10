@@ -5,4 +5,9 @@ export const PATH = {
     WEBTOON: '/browse/webtoon',
     PARTIES: '/browse/parties',
   },
+  AUTH: {
+    LOGIN: '/login',
+    SIGNUP: '/signup',
+  },
+  SEARCH: 'search',
 };

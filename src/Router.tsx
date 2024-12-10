@@ -4,6 +4,7 @@ import Theater from '@/pages/browse/Theater/Theater';
 import Video from '@/pages/browse/Video/Video';
 import Webtoon from '@/pages/browse/Webtoon/Webtoon';
 import Parties from '@/pages/browse/Parties/Parties';
+import Search from './pages/search/Search';
 
 const Router = () => {
   return (
@@ -17,6 +18,7 @@ const Router = () => {
             <Route path="webtoon" element={<Webtoon />} />
             <Route path="parties" element={<Parties />} />
           </Route>
+          <Route path="search" element={<Search />} />
         </Route>
       </Routes>
     </BrowserRouter>

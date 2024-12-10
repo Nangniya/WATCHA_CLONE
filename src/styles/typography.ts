@@ -45,9 +45,9 @@ export const TYPOGRAPHY = {
       fontWeight: 400,
     },
     small: {
-      fontSize: '14px',
+      fontSize: '15px',
       lineHeight: '20px',
-      fontWeight: 700,
+      fontWeight: 400,
     },
   },
   body: {
@@ -62,9 +62,9 @@ export const TYPOGRAPHY = {
       fontWeight: 400,
     },
     small: {
-      fontSize: '12px',
-      lineHeight: '16px',
-      fontWeight: 400,
+      fontSize: '13px',
+      lineHeight: '18px',
+      fontWeight: 500,
     },
   },
   label: {
