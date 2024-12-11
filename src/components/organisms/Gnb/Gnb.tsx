@@ -1,21 +1,18 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import NavLink from '@/components/atoms/NavLink/NavLink';
+import SearchField from '@/features/search/components/molcules/SearchField/SearchField';
 import Logo from '@/assets/icons/logo.svg';
-import Search from '@/assets/icons/search.svg';
 import Star from '@/assets/icons/star.svg';
 import Inventory from '@/assets/icons/inventory.svg';
 import InactiveBell from '@/assets/icons/bell.svg';
 import ActiveBell from '@/assets/icons/bell-filled.svg';
 import { PATH } from '@/constants/path';
 import * as S from './Gnb.styles';
-import NavLink from '@/components/atoms/NavLink/NavLink';
 
 const Gnb = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isBellOpen, setIsBellOpen] = useState(false);
 
-  const navigate = useNavigate();
-  const handleSearchClick = () => navigate(PATH.SEARCH);
   const handleBellClick = () => setIsBellOpen((prev) => !prev);
 
   return (
@@ -30,12 +27,7 @@ const Gnb = () => {
         <NavLink to={PATH.BROWSE.PARTIES} text="왓챠파티" />
       </S.LeftContainer>
       <S.RightContainer>
-        <S.Form>
-          <S.Label onClick={handleSearchClick}>
-            <Search width="20" height="20" />
-            <S.Input type="search" placeholder="콘텐츠, 태그, 인물, 리스트 검색" />
-          </S.Label>
-        </S.Form>
+        <SearchField />
         {isLoggedIn ? (
           <S.LoggedInUl>
             <li>

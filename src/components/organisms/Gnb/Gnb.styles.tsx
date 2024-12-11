@@ -32,38 +32,6 @@ export const LogoWrapper = styled(Link)`
   text-decoration: none;
 `;
 
-export const Form = styled.form`
-  position: relative;
-  width: 264px;
-  height: 36px;
-`;
-
-export const Label = styled.label`
-  display: flex;
-  align-items: center;
-  padding: 8px 12px;
-  border-radius: 8px;
-  overflow: hidden;
-  border-radius: 8px;
-  background-color: ${COLORS.background[50]};
-  color: ${COLORS.gray[60]};
-  svg {
-    margin-right: 8px;
-  }
-`;
-
-export const Input = styled.input`
-  width: 100%;
-  color: ${COLORS.base.white};
-  appearance: none;
-  background: 0 0;
-  border: 0;
-  outline: none;
-  margin: 0;
-  padding: 0;
-  ${getFontStyle('title', 'small')};
-`;
-
 export const LoggedInUl = styled.ul`
   display: flex;
   gap: 23px;
