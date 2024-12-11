@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
 import Layout from '@/components/templates/Layout/Layout';
 import Theater from '@/pages/browse/Theater/Theater';
 import Video from '@/pages/browse/Video/Video';
@@ -11,7 +11,7 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<Theater />} />
+          <Route index element={<Navigate to="/browse/theater" replace />} />
           <Route path="browse">
             <Route path="theater" element={<Theater />} />
             <Route path="video" element={<Video />} />

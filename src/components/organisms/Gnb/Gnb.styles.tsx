@@ -19,17 +19,10 @@ export const LeftContainer = styled.div`
   align-items: center;
 `;
 
-export const RightContainer = styled.ul`
+export const RightContainer = styled.div`
   display: flex;
   gap: 8px;
   align-items: center;
-`;
-
-export const Category = styled(Link)`
-  ${getFontStyle('title', 'medium')};
-  padding: 16px;
-  color: ${COLORS.gray[60]};
-  text-decoration: none;
 `;
 
 export const LogoWrapper = styled(Link)`
@@ -71,9 +64,11 @@ export const Input = styled.input`
   ${getFontStyle('title', 'small')};
 `;
 
-export const MyList = styled.div`
+export const LoggedInUl = styled.ul`
   display: flex;
   gap: 23px;
+  align-items: center;
+  margin-left: 23px;
   cursor: pointer;
   color: ${COLORS.base.white};
 `;
@@ -102,6 +97,14 @@ export const Profile = styled.button`
   img {
     width: 100%;
   }
+`;
+
+export const NotLoggedInUl = styled.ul`
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: ${COLORS.base.white};
+  cursor: pointer;
 `;
 
 export const LogIn = styled(Link)`

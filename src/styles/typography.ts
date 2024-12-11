@@ -45,8 +45,8 @@ export const TYPOGRAPHY = {
       fontWeight: 400,
     },
     small: {
-      fontSize: '15px',
-      lineHeight: '20px',
+      fontSize: '16px',
+      lineHeight: '24px',
       fontWeight: 400,
     },
   },
@@ -54,7 +54,7 @@ export const TYPOGRAPHY = {
     large: {
       fontSize: '16px',
       lineHeight: '24px',
-      fontWeight: 400,
+      fontWeight: 700,
     },
     medium: {
       fontSize: '14px',
