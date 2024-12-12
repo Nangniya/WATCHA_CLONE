@@ -1,7 +1,7 @@
-import { COLORS } from '@/styles/colors';
-import { getFontStyle } from '@/styles/typography';
-import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import styled from '@emotion/styled';
+import { getFontStyle } from '@/styles/typography';
+import { COLORS } from '@/styles/colors';
 
 interface IContainerProps {
   $isActive: boolean;

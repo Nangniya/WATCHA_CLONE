@@ -1,16 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SearchToolTip from '@/features/search/components/molcules/SearchToolTip/SearchToolTip';
 import Search from '@/assets/icons/search.svg';
 import X from '@/assets/icons/clear.svg';
 import { PATH } from '@/constants/path';
-import * as S from './SearchField.styles';
-import { useSearchQuery } from '@/features/search/hooks/useSearchQuery';
 import { useDebounce } from '@/hooks/useDebounce';
+import { useToolTip } from '@/hooks/useToolTip';
+import { useSearchQuery } from '@/features/search/hooks/useSearchQuery';
+import * as S from './SearchField.styles';
 
 const SearchField = () => {
   const { query, setSearchQuery } = useSearchQuery();
   const [value, setValue] = useState(query);
   const navigate = useNavigate();
+  const formRef = useRef<HTMLFormElement>(null);
+  const { isShown, handleClose } = useToolTip('visitSearchPage');
 
   const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
@@ -24,7 +28,7 @@ const SearchField = () => {
   useDebounce(value, setSearchQuery);
 
   return (
-    <S.Form>
+    <S.Form ref={formRef}>
       <S.Label onClick={handleSearchClick}>
         <Search width="20" height="20" />
         <S.Input value={value} onChange={handleValueChange} placeholder="콘텐츠, 태그, 인물, 리스트 검색" />
@@ -34,6 +38,13 @@ const SearchField = () => {
           </S.ClearBtn>
         )}
       </S.Label>
+      {isShown && (
+        <SearchToolTip
+          message={`'한국 드라마', '일본 애니메이션'으로도 검색할 수 있어요`}
+          anchorEl={formRef.current}
+          onClose={handleClose}
+        />
+      )}
     </S.Form>
   );
 };

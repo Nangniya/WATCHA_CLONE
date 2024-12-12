@@ -71,12 +71,12 @@ export const TYPOGRAPHY = {
     large: {
       fontSize: '14px',
       lineHeight: '20px',
-      fontWeight: 400,
+      fontWeight: 500,
     },
     medium: {
-      fontSize: '12px',
-      lineHeight: '16px',
-      fontWeight: 400,
+      fontSize: '13px',
+      lineHeight: '18px',
+      fontWeight: 500,
     },
     small: {
       fontSize: '11px',
