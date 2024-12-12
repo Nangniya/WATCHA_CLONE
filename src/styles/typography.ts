@@ -40,9 +40,9 @@ export const TYPOGRAPHY = {
       fontWeight: 700,
     },
     medium: {
-      fontSize: '16px',
-      lineHeight: '24px',
-      fontWeight: 400,
+      fontSize: '20px',
+      lineHeight: '26px',
+      fontWeight: 700,
     },
     small: {
       fontSize: '16px',
@@ -57,7 +57,7 @@ export const TYPOGRAPHY = {
       fontWeight: 700,
     },
     medium: {
-      fontSize: '14px',
+      fontSize: '15px',
       lineHeight: '20px',
       fontWeight: 400,
     },

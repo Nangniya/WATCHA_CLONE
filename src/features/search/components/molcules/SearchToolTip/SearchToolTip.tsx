@@ -3,12 +3,11 @@ import Portal from '@/components/templates/Portal/Portal';
 import * as S from './SearchToolTip.styles';
 
 interface IProps {
-  message: string;
   anchorEl: HTMLElement | null;
   onClose: () => void;
 }
 
-const SearchToolTip = ({ message, anchorEl, onClose }: IProps) => {
+const SearchToolTip = ({ anchorEl, onClose }: IProps) => {
   const [position, setPosition] = useState({ top: 0, left: 0 });
   const tooltipRef = useRef<HTMLDivElement>(null);
 
@@ -32,7 +31,7 @@ const SearchToolTip = ({ message, anchorEl, onClose }: IProps) => {
         <S.Container>
           <S.Arrow />
           <S.MessageBox>
-            <S.Message>{message}</S.Message>
+            <S.Message>{`'한국 드라마', '일본 애니메이션'으로도 검색할 수 있어요`}</S.Message>
             <S.CloseBtn onClick={onClose}>확인</S.CloseBtn>
           </S.MessageBox>
         </S.Container>

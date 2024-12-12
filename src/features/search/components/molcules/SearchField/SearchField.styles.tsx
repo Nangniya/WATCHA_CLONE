@@ -5,7 +5,6 @@ import { COLORS } from '@/styles/colors';
 export const Form = styled.form`
   position: relative;
   width: 264px;
-  height: 36px;
 `;
 
 export const Label = styled.label`
@@ -13,6 +12,7 @@ export const Label = styled.label`
   justify-content: space-between;
   align-items: center;
   gap: 8px;
+  height: 36px;
   padding: 8px 12px;
   border-radius: 8px;
   overflow: hidden;
@@ -30,7 +30,11 @@ export const Input = styled.input`
   outline: none;
   margin: 0;
   padding: 0;
-  ${getFontStyle('title', 'small')};
+  ${getFontStyle('body', 'medium')};
+
+  &::placeholder {
+    color: ${COLORS.gray[60]};
+  }
 `;
 
 export const ClearBtn = styled.button`

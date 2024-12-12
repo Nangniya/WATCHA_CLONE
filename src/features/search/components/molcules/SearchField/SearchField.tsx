@@ -38,13 +38,7 @@ const SearchField = () => {
           </S.ClearBtn>
         )}
       </S.Label>
-      {isShown && (
-        <SearchToolTip
-          message={`'한국 드라마', '일본 애니메이션'으로도 검색할 수 있어요`}
-          anchorEl={formRef.current}
-          onClose={handleClose}
-        />
-      )}
+      {isShown && <SearchToolTip anchorEl={formRef.current} onClose={handleClose} />}
     </S.Form>
   );
 };

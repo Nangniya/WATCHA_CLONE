@@ -9,13 +9,13 @@ interface IContainerProps {
 
 export const Container = styled(Link)<IContainerProps>`
   position: relative;
-  ${({ $isActive }) => ($isActive ? getFontStyle('body', 'large') : getFontStyle('title', 'medium'))};
+  ${({ $isActive }) => ($isActive ? getFontStyle('body', 'large') : getFontStyle('title', 'small'))};
   padding: 16px;
   text-decoration: none;
   color: ${({ $isActive }) => ($isActive ? COLORS.base.white : COLORS.gray[60])};
 
   &:hover {
-    ${({ $isActive }) => $isActive && getFontStyle('title', 'medium')};
+    ${({ $isActive }) => $isActive && getFontStyle('title', 'small')};
     color: ${({ $isActive }) => $isActive && COLORS.gray[60]};
   }
 

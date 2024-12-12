@@ -52,6 +52,16 @@ export const Bell = styled.button`
   cursor: pointer;
 `;
 
+export const BellWrapper = styled.div`
+  position: relative;
+`;
+
+export const NotificationWrapper = styled.div`
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+`;
+
 export const Profile = styled.button`
   background: 0 0;
   border: 0;
