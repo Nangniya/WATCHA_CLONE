@@ -7,6 +7,6 @@ export const OuterWrapper = styled.div`
   background-color: ${COLORS.base.black};
 `;
 
-export const InnerWrapper = styled.div`
+export const InnerWrapper = styled.main`
   margin-top: 72px;
 `;
