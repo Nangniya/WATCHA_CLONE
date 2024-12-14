@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { getFontStyle } from '../../../styles/typography';
 import { COLORS } from '../../../styles/colors';
 
-export const Container = styled.nav`
+export const Container = styled.header`
   position: fixed;
   top: 0;
   display: flex;
@@ -14,12 +14,12 @@ export const Container = styled.nav`
   padding: 12px 40px;
 `;
 
-export const LeftContainer = styled.div`
+export const LeftContainer = styled.nav`
   display: flex;
   align-items: center;
 `;
 
-export const RightContainer = styled.div`
+export const RightContainer = styled.nav`
   display: flex;
   gap: 8px;
   align-items: center;
