@@ -9,8 +9,8 @@ const Layout = () => {
       <Gnb />
       <S.InnerWrapper>
         <Outlet />
-        <Fnb />
       </S.InnerWrapper>
+      <Fnb />
     </S.OuterWrapper>
   );
 };
