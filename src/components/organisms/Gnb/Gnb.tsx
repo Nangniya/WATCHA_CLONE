@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import NavLink from '@/components/atoms/NavLink/NavLink';
-import { Notification } from '@/components/organisms/Notification/Notification';
+import Notification from '@/components/organisms/Notification/Notification';
 import SearchField from '@/features/search/components/molcules/SearchField/SearchField';
 import Logo from '@/assets/icons/logo.svg';
 import Star from '@/assets/icons/star.svg';
