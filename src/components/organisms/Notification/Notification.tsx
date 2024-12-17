@@ -2,7 +2,7 @@ import party from '@/assets/images/notification-party.png';
 import { NOTICELIST } from '@/constants/mock';
 import * as S from './Notification.styles';
 
-export const Notification = () => {
+const Notification = () => {
   return (
     <S.Container>
       <S.H4>소식함</S.H4>
@@ -21,3 +21,5 @@ export const Notification = () => {
     </S.Container>
   );
 };
+
+export default Notification;
