@@ -20,7 +20,7 @@ export const Container = styled(Link)<IContainerProps>`
   }
 
   &:hover::before {
-    opacity: ${({ $isActive }) => ($isActive ? 1 : 1)};
+    opacity: 1;
   }
 
   &::before {

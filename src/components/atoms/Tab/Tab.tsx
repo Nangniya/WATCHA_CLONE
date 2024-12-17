@@ -18,9 +18,11 @@ const Tab = ({ text, queryValue }: IProps) => {
   };
 
   return (
-    <S.Button $isActive={isActive} onClick={onClick}>
-      {text}
-    </S.Button>
+    <li>
+      <S.Button $isActive={isActive} onClick={onClick}>
+        {text}
+      </S.Button>
+    </li>
   );
 };
 

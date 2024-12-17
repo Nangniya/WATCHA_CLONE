@@ -6,21 +6,11 @@ const Theater = () => {
     <S.Container>
       <S.TabContainer>
         <S.TabUl>
-          <li>
-            <Tab text="추천" queryValue="all" />
-          </li>
-          <li>
-            <Tab text="#왓챠의 발견" queryValue="a" />
-          </li>
-          <li>
-            <Tab text="#한국" queryValue="b" />
-          </li>
-          <li>
-            <Tab text="#애니메이션" queryValue="c" />
-          </li>
-          <li>
-            <Tab text="성인+" queryValue="d" />
-          </li>
+          <Tab text="추천" queryValue="all" />
+          <Tab text="#왓챠의 발견" queryValue="a" />
+          <Tab text="#한국" queryValue="b" />
+          <Tab text="#애니메이션" queryValue="c" />
+          <Tab text="성인+" queryValue="d" />
         </S.TabUl>
       </S.TabContainer>
     </S.Container>
