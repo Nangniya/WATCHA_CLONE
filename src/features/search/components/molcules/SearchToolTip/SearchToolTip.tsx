@@ -1,11 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import Portal from '@/components/templates/Portal/Portal';
+import { IProps } from './SearchToolTip.types';
 import * as S from './SearchToolTip.styles';
-
-interface IProps {
-  anchorEl: HTMLElement | null;
-  onClose: () => void;
-}
 
 const SearchToolTip = ({ anchorEl, onClose }: IProps) => {
   const [position, setPosition] = useState({ top: 0, left: 0 });
