@@ -2,10 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { getFontStyle } from '@/styles/typography';
 import { COLORS } from '@/styles/colors';
-
-interface IContainerProps {
-  $isActive: boolean;
-}
+import { IContainerProps } from './NavLink.types';
 
 export const Container = styled(Link)<IContainerProps>`
   position: relative;
