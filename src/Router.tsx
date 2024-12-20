@@ -1,9 +1,9 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
 import Layout from '@/components/templates/Layout/Layout';
-import Theater from '@/pages/browse/Theater/Theater';
-import Video from '@/pages/browse/Video/Video';
-import Webtoon from '@/pages/browse/Webtoon/Webtoon';
-import Parties from '@/pages/browse/Parties/Parties';
+import Movie from '@/pages/browse/Movie/Movie';
+import Favorite from '@/pages/browse/Favorite/Favorite';
+import Tv from '@/pages/browse/Tv/Tv';
+import People from '@/pages/browse/People/People';
 import Search from './pages/search/Search';
 
 const Router = () => {
@@ -11,12 +11,12 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<Navigate to="/browse/theater" replace />} />
+          <Route index element={<Navigate to="/browse/movie" replace />} />
           <Route path="browse">
-            <Route path="theater" element={<Theater />} />
-            <Route path="video" element={<Video />} />
-            <Route path="webtoon" element={<Webtoon />} />
-            <Route path="parties" element={<Parties />} />
+            <Route path="favorite" element={<Favorite />} />
+            <Route path="movie" element={<Movie />} />
+            <Route path="tv" element={<Tv />} />
+            <Route path="people" element={<People />} />
           </Route>
           <Route path="search" element={<Search />} />
         </Route>

@@ -29,10 +29,10 @@ const Gnb = () => {
         <S.LogoWrapper to="/">
           <Logo width="88" height="26" />
         </S.LogoWrapper>
-        <NavLink to={PATH.BROWSE.VIDEO} text="구독" />
-        <NavLink to={PATH.BROWSE.THEATER} text="개별 구매" />
-        <NavLink to={PATH.BROWSE.WEBTOON} text="웹툰" />
-        <NavLink to={PATH.BROWSE.PARTIES} text="왓챠파티" />
+        <NavLink to={PATH.BROWSE.FAVORITE} text="구독" />
+        <NavLink to={PATH.BROWSE.MOVIE} text="영화" />
+        <NavLink to={PATH.BROWSE.TV} text="TV" />
+        <NavLink to={PATH.BROWSE.PEOPLE} text="인물" />
       </S.LeftContainer>
       <S.RightContainer>
         <SearchField />

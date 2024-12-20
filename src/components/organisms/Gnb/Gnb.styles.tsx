@@ -12,11 +12,13 @@ export const Container = styled.header`
   width: 100%;
   height: 72px;
   padding: 12px 40px;
+  background-color: ${COLORS.base.black};
 `;
 
 export const LeftContainer = styled.nav`
   display: flex;
   align-items: center;
+  gap: 10px;
 `;
 
 export const RightContainer = styled.nav`
