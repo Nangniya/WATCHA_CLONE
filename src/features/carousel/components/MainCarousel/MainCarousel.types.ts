@@ -1,11 +1,7 @@
-export interface IMovieData {
-  id: number;
-  backdrop_path: string;
-  title: string;
-}
+import { IPopularMovie } from '@/services/movie.types';
 
 export interface IProps {
-  data: IMovieData[] | null;
+  data: IPopularMovie[] | null;
 }
 
 export type Direction = 'next' | 'prev';

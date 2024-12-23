@@ -16,6 +16,7 @@ const Movie = () => {
 
   return (
     <S.Container>
+      <S.Hr />
       <S.TabContainer>
         <S.TabUl>
           <Tab text="인기" isActive={currentTab === 'popular'} onClick={() => {}} />

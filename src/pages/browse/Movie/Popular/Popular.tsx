@@ -6,7 +6,7 @@ const Popular = () => {
   const { data } = usePopularMovies();
   return (
     <S.Container>
-      <MainCarousel data={data?.results || null} />
+      <MainCarousel data={data?.results.slice(0, 5) || null} />
     </S.Container>
   );
 };

@@ -13,6 +13,7 @@ export const Container = styled.header`
   height: 72px;
   padding: 12px 40px;
   background-color: ${COLORS.base.black};
+  z-index: 10;
 `;
 
 export const LeftContainer = styled.nav`

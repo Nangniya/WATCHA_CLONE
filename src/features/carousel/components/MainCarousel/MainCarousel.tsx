@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Arrow from '@/assets/icons/arrow.svg';
 import { Direction, IProps } from './MainCarousel.types';
 import * as S from './MainCarousel.styles';
 
@@ -10,8 +11,8 @@ const MainCarousel = ({ data }: IProps) => {
     if (!data) return;
 
     setIsTransitioning(false);
-    if (currentSlide >= 11) setCurrentSlide(1);
-    if (currentSlide <= 0) setCurrentSlide(10);
+    if (currentSlide >= data.length + 1) setCurrentSlide(1);
+    if (currentSlide <= 0) setCurrentSlide(data.length);
   };
 
   const handleSlideChange = (direction: Direction) => () => {
@@ -21,15 +22,13 @@ const MainCarousel = ({ data }: IProps) => {
     setCurrentSlide((prev) => prev + (direction === 'next' ? 1 : -1));
   };
 
-  if (!data) return null;
-
-  const DATA = [data[9], ...data.slice(0, 10), data[0]];
+  const DATA = data ? [data[data.length - 1], ...data, data[0]] : [];
 
   return (
     <S.CarouselWrapper>
-      <S.Arrow className="left" onClick={handleSlideChange('prev')}>
-        왼
-      </S.Arrow>
+      <S.ArrowWrapper className="left" onClick={handleSlideChange('prev')}>
+        <Arrow width="10" height="40" />
+      </S.ArrowWrapper>
       <S.MainCarousel>
         <S.SlideUl
           $currentSlide={currentSlide}
@@ -38,14 +37,20 @@ const MainCarousel = ({ data }: IProps) => {
         >
           {DATA.map((movie) => (
             <S.SlideLi key={movie.id}>
-              <S.Image src={`${process.env.IMAGE_URL}/original${movie.backdrop_path}`} alt={`${movie.title} image`} />
+              <S.MovieLink to={`/contents/${movie.id}`}>
+                <S.Image src={`${process.env.IMAGE_URL}/original${movie.backdrop_path}`} alt={`${movie.title} image`} />
+                <S.ContentWrapper>
+                  <S.Title>{movie.title}</S.Title>
+                  <S.Description>{movie.overview}</S.Description>
+                </S.ContentWrapper>
+              </S.MovieLink>
             </S.SlideLi>
           ))}
         </S.SlideUl>
       </S.MainCarousel>
-      <S.Arrow className="right" onClick={handleSlideChange('next')}>
-        오
-      </S.Arrow>
+      <S.ArrowWrapper className="right" onClick={handleSlideChange('next')}>
+        <Arrow width="10" height="40" />
+      </S.ArrowWrapper>
     </S.CarouselWrapper>
   );
 };
