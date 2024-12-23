@@ -5,12 +5,15 @@ import { COLORS } from '@/styles/colors';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
   padding-bottom: 32px;
 `;
 
 export const TabContainer = styled.section`
-  padding: 0 40px;
+  position: sticky;
+  top: 72px;
+  padding: 24px 40px 12px 40px;
+  background-color: ${COLORS.base.black};
+  z-index: 5;
 `;
 
 export const TabUl = styled.ul`
