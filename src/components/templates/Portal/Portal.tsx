@@ -1,9 +1,5 @@
 import { createPortal } from 'react-dom';
-
-interface IProps {
-  children: React.ReactNode;
-  containerId: 'tooltip-root' | 'modal-root' | 'toast-root';
-}
+import { IProps } from './Portal.types';
 
 const Portal = ({ children, containerId }: IProps) => {
   const container = document.getElementById(containerId);

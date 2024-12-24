@@ -11,6 +11,7 @@ export const Wrapper = styled.div<IWrapperProps>`
   position: fixed;
   top: ${({ $top }) => $top}px;
   left: ${({ $left }) => $left}px;
+  z-index: 10;
 `;
 
 export const Container = styled.div`
