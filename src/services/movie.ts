@@ -1,16 +1,7 @@
-interface IPopularMovieResponse {
-  results: IPopularMovie[];
-}
-
-interface IPopularMovie {
-  id: number;
-  backdrop_path: string;
-  title: string;
-  overview: string;
-}
+import { IPopularMovieResponse } from './movie.types';
 
 export const getPopularMovies = async (): Promise<IPopularMovieResponse> => {
-  const response = await fetch(`${process.env.MOVIE_API_URL}/movie/popular`, {
+  const response = await fetch(`${process.env.MOVIE_API_URL}/movie/popular?language=ko-KR`, {
     headers: {
       accept: 'application/json',
       Authorization: `Bearer ${process.env.MOVIE_ACCESS_TOKEN}`,
