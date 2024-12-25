@@ -1,8 +1,8 @@
 export interface IPopularMovieResponse {
-  results: IPopularMovie[];
+  results: IBaseMovieData[];
 }
 
-export interface IPopularMovie {
+export interface IBaseMovieData {
   id: number;
   backdrop_path: string;
   title: string;

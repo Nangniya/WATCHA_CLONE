@@ -1,18 +1,27 @@
+import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { getFontStyle } from '@/styles/typography';
 import { COLORS } from '@/styles/colors';
-import { Link } from 'react-router-dom';
+import { CarouselType } from './CategoryCarousel.types';
 
-export const CarouselWrapper = styled.section`
+export const Container = styled.section`
   position: relative;
+  display: flex;
+  flex-direction: column;
   padding: 0 40px;
+  color: ${COLORS.base.white};
 
   &:hover button {
     opacity: 1;
   }
 `;
 
-export const MainCarousel = styled.div`
+export const Category = styled.h2`
+  ${getFontStyle('title', 'medium')};
+`;
+
+export const SlideContainer = styled.div`
+  display: flex;
   overflow: hidden;
 `;
 
@@ -44,61 +53,46 @@ export const ArrowWrapper = styled.button`
 `;
 
 export const SlideUl = styled.ul<{
-  $currentSlide: number;
+  $transform: number;
   $isTransitioning: boolean;
   $gap: number;
-  $transform: number;
 }>`
+  position: relative;
   display: flex;
   gap: ${({ $gap }) => `${$gap}px`};
   width: 100%;
-  padding: 12px 0;
-  transform: ${({ $transform }) => `translateX(${$transform}px)`};
-  transition: ${({ $isTransitioning }) => ($isTransitioning ? 'transform 1s ease-in-out' : 'none')};
+  transform: translateX(${({ $transform }) => `${$transform}px`});
+  transition: ${({ $isTransitioning }) => ($isTransitioning ? 'transform 0.8s ease-in-out' : 'none')};
 `;
 
 export const SlideLi = styled.li<{ $width: number }>`
   position: relative;
   flex-shrink: 0;
   width: ${({ $width }) => `${$width}px`};
-  border-radius: 8px;
-  overflow: hidden;
-
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 50%;
-    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
-  }
+  cursor: pointer;
 `;
 
-export const MovieLink = styled(Link)`
-  text-decoration: none;
-`;
-
-export const Image = styled.img`
+export const Image = styled.img<{ $type: CarouselType }>`
+  position: relative; // 쌓임 맥락 만들기 위함
   width: 100%;
+  padding-left: ${({ $type }) => $type === 'ranking' && '50px'};
+  object-fit: cover;
+  border-radius: 4px;
+  z-index: 2;
 `;
 
-export const ContentWrapper = styled.div`
+export const RankNumber = styled.div`
   position: absolute;
-  bottom: 40px;
-  left: 40px;
-  right: 40px;
+  bottom: 0;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  z-index: 1;
-  color: ${COLORS.base.white};
-`;
-
-export const Title = styled.h3`
+  justify-content: flex-end;
+  align-items: flex-end;
   ${getFontStyle('display', 'large')};
+  z-index: 1;
 `;
 
-export const Description = styled.p`
-  ${getFontStyle('body', 'medium')};
+export const ContentTitle = styled.p`
+  position: absolute;
+  ${getFontStyle('body', 'small')};
+  color: ${COLORS.base.white};
 `;

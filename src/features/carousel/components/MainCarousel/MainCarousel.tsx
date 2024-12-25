@@ -33,10 +33,12 @@ const MainCarousel = ({ data }: IProps) => {
         <S.SlideUl
           $currentSlide={currentSlide}
           $isTransitioning={isTransitioning}
+          $gap={20}
+          $transform={-1000 * currentSlide}
           onTransitionEnd={handleTransitionEnd}
         >
-          {DATA.map((movie) => (
-            <S.SlideLi key={movie.id}>
+          {DATA.map((movie, index) => (
+            <S.SlideLi key={`main-${movie.id}-${index}`} $width={980}>
               <S.MovieLink to={`/contents/${movie.id}`}>
                 <S.Image src={`${process.env.IMAGE_URL}/original${movie.backdrop_path}`} alt={`${movie.title} image`} />
                 <S.ContentWrapper>
