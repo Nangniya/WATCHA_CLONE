@@ -19,7 +19,7 @@ const Notification = () => {
             <S.Content>
               <S.Title>{item.title}</S.Title>
               <S.SubTitle>{item.subtitle}</S.SubTitle>
-              <S.Time>{item.humanized_received_at}</S.Time>
+              <S.Time>{item.humanizedReceivedAt}</S.Time>
             </S.Content>
           </S.Li>
         ))}

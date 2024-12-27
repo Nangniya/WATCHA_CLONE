@@ -28,7 +28,7 @@ export const SlideContainer = styled.div`
 export const ArrowWrapper = styled.button`
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(calc(-50% + 13px));
   display: flex;
   justify-content: center;
   width: 40px;

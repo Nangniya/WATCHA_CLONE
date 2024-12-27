@@ -1,3 +1,4 @@
+import { convertSnakeToCamel } from '@/utils/formatters';
 import { IPopularMovieResponse } from './movie.types';
 
 export const getPopularMovies = async (): Promise<IPopularMovieResponse> => {
@@ -8,7 +9,7 @@ export const getPopularMovies = async (): Promise<IPopularMovieResponse> => {
     },
   });
   const result = await response.json();
-  return result;
+  return convertSnakeToCamel(result);
 };
 
 export const getPopularMovies2 = async (): Promise<IPopularMovieResponse> => {
@@ -19,5 +20,5 @@ export const getPopularMovies2 = async (): Promise<IPopularMovieResponse> => {
     },
   });
   const result = await response.json();
-  return result;
+  return convertSnakeToCamel(result);
 };

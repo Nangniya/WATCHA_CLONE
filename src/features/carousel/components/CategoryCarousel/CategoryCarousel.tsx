@@ -101,7 +101,7 @@ const CategoryCarousel = ({ type = 'normal', category, data }: IProps) => {
           {DATA.map((movie, index) => (
             <S.SlideLi key={`slide-${movie.id}-${index}`} $width={ITEM_WIDTH}>
               {type === 'ranking' && <S.RankNumber>{calculateRankNumber(index)}</S.RankNumber>}
-              <S.Image src={`${process.env.IMAGE_URL}/w500${movie.backdrop_path}`} alt={movie.title} $type={type} />
+              <S.Image src={`${process.env.IMAGE_URL}/w500${movie.backdropPath}`} alt={movie.title} $type={type} />
               <S.ContentTitle>{movie.title}</S.ContentTitle>
             </S.SlideLi>
           ))}
