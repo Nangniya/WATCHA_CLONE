@@ -5,8 +5,8 @@ export const NOTICELIST = [
     id: '1733893200000000000',
     title: '2024년 마지막! 연간구독권 40% 할인 🎁',
     subtitle: '혜택가로 내년까지 쭉- 함께해요 ',
-    humanized_received_at: '어제',
-    alt_text: '2024년 마지막! 연간구독권 40% 할인 🎁',
+    humanizedReceivedAt: '어제',
+    altText: '2024년 마지막! 연간구독권 40% 할인 🎁',
   },
   {
     id: '1733828281000000000',
