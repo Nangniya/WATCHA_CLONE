@@ -46,19 +46,21 @@ export const ArrowWrapper = styled.button`
 export const SlideUl = styled.ul<{
   $currentSlide: number;
   $isTransitioning: boolean;
+  $gap: number;
+  $transform: number;
 }>`
   display: flex;
-  gap: 20px;
+  gap: ${({ $gap }) => `${$gap}px`};
   width: 100%;
   padding: 12px 0;
-  transform: ${({ $currentSlide }) => `translateX(${-1000 * $currentSlide}px)`};
+  transform: ${({ $transform }) => `translateX(${$transform}px)`};
   transition: ${({ $isTransitioning }) => ($isTransitioning ? 'transform 1s ease-in-out' : 'none')};
 `;
 
-export const SlideLi = styled.li`
+export const SlideLi = styled.li<{ $width: number }>`
   position: relative;
   flex-shrink: 0;
-  width: 980px;
+  width: ${({ $width }) => `${$width}px`};
   border-radius: 8px;
   overflow: hidden;
 
@@ -93,7 +95,7 @@ export const ContentWrapper = styled.div`
   color: ${COLORS.base.white};
 `;
 
-export const Title = styled.h2`
+export const Title = styled.h3`
   ${getFontStyle('display', 'large')};
 `;
 
