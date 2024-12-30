@@ -8,7 +8,9 @@ const Layout = () => {
     <S.OuterWrapper>
       <Gnb />
       <S.InnerWrapper>
-        <Outlet />
+        <S.InnerContainer>
+          <Outlet />
+        </S.InnerContainer>
       </S.InnerWrapper>
       <Fnb />
     </S.OuterWrapper>

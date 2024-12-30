@@ -8,6 +8,11 @@ export const movieApi = axios.create({
   },
 });
 
+movieApi.interceptors.response.use(async (response) => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  return response;
+});
+
 export const mockApi = axios.create({
   baseURL: 'https://example.com',
 });

@@ -1,16 +1,24 @@
-import MainCarousel from '@/features/carousel/components/MainCarousel/MainCarousel';
-import CategoryCarousel from '@/features/carousel/components/CategoryCarousel/CategoryCarousel';
-import { usePopularMovies, usePopularMovies2 } from '@/queries/movie';
+import { Suspense } from 'react';
+import Skeleton from '@/components/atoms/Skeleton/Skeleton';
+import PopularContent from './PopularContent/PopularContent';
 import * as S from './Popular.styles';
 
 const Popular = () => {
-  const { data: popularData } = usePopularMovies();
-  const { data: popularData2 } = usePopularMovies2();
   return (
     <S.Container>
-      <MainCarousel data={popularData?.results.slice(0, 5) || null} />
-      <CategoryCarousel type="ranking" category="인기 Top 20" data={popularData?.results || null} />
-      <CategoryCarousel category="새로 올라온 콘텐츠" data={popularData2?.results || null} />
+      <Suspense
+        fallback={
+          <S.SkeletonContainer>
+            {Array(5)
+              .fill(null)
+              .map((_, i) => (
+                <Skeleton width={300} height={200} key={`skeleton-${i}`} />
+              ))}
+          </S.SkeletonContainer>
+        }
+      >
+        <PopularContent />
+      </Suspense>
     </S.Container>
   );
 };
