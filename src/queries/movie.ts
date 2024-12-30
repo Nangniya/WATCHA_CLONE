@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getPopularMovies, getPopularMovies2 } from '@/services/movie';
+import { getPopularMovies } from '@/services/movie/movie';
 
 export const usePopularMovies = () => {
   return useQuery({
@@ -11,6 +11,6 @@ export const usePopularMovies = () => {
 export const usePopularMovies2 = () => {
   return useQuery({
     queryKey: ['movie', 'popular', '2'],
-    queryFn: getPopularMovies2,
+    queryFn: () => getPopularMovies({ page: 2 }),
   });
 };
