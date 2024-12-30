@@ -12,7 +12,7 @@ export const NOTICELIST = [
     id: '1733828281000000000',
     title: '1995년에서 온 한 통의 편지 📮',
     subtitle: '12/18(수) 왓챠파티@무비랜드 예매 신청 오픈',
-    humanizedReceivedAt: '2일 전',
-    altText: '1995년에서 온 한 통의 편지 📮',
+    humanized_received_at: '2일 전',
+    alt_text: '1995년에서 온 한 통의 편지 📮',
   },
 ];
