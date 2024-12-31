@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, useState } from 'react';
-import Portal from '@/components/templates/Portal/Portal';
+import Portal from '@/providers/Portal/Portal';
 import { IProps } from './SearchToolTip.types';
 import * as S from './SearchToolTip.styles';
 

@@ -10,3 +10,8 @@ export const OuterWrapper = styled.div`
 export const InnerWrapper = styled.main`
   margin-top: 72px;
 `;
+
+export const InnerContainer = styled.div`
+  margin: 0 auto;
+  max-width: 1600px;
+`;

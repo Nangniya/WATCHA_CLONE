@@ -1,13 +1,9 @@
-import { useQuery } from '@tanstack/react-query';
 import party from '@/assets/images/notification-party.png';
-import { getNotifications } from '@/services/mock';
+import { useNotification } from '@/queries/system';
 import * as S from './Notification.styles';
 
 const Notification = () => {
-  const { data } = useQuery({
-    queryKey: ['notification'],
-    queryFn: getNotifications,
-  });
+  const { data } = useNotification();
 
   return (
     <S.Container>
