@@ -3,8 +3,11 @@ import MainCarousel from '@/features/carousel/components/MainCarousel/MainCarous
 import { usePopularMovies, usePopularMovies2 } from '@/queries/movie';
 
 const PopularContent = () => {
-  const { data: popularData } = usePopularMovies();
+  const { data: popularData, error } = usePopularMovies();
   const { data: popularData2 } = usePopularMovies2();
+
+  if (error != null) throw new Error('인기 데이터에서 오류가 발생했습니다.');
+
   return (
     <>
       <MainCarousel data={popularData?.results.slice(0, 5) || null} />
