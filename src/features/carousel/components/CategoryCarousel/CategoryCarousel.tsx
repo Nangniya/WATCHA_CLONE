@@ -91,7 +91,7 @@ const CategoryCarousel = ({ type = 'normal', category, data }: IProps) => {
           onTransitionEnd={handleTransitionEnd}
         >
           {DATA.map(({ id, backdropPath, title }, index) => (
-            <S.SlideLi key={`slide-${id}`} $width={ITEM_WIDTH}>
+            <S.SlideLi key={`slide-${id}-${index}`} $width={ITEM_WIDTH}>
               <S.MovieLink to={`/content/${id}`}>
                 {type === 'ranking' && <S.RankNumber>{calculateRankNumber(index)}</S.RankNumber>}
                 <S.Image src={`${process.env.IMAGE_URL}/w500${backdropPath}`} alt={title} $type={type} />

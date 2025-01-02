@@ -128,7 +128,7 @@ export const CastContainer = styled.section`
   padding: 0 40px;
 `;
 
-export const Grid = styled.ul`
+export const PeopleGrid = styled.ul`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   width: 100%;
@@ -149,4 +149,27 @@ export const More = styled(Link)`
   text-decoration: none;
   ${getFontStyle('body', 'medium')};
   color: ${COLORS.gray[60]};
+`;
+
+export const RelatedContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px;
+`;
+
+export const SimilarGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  width: 100%;
+`;
+
+export const SimilarMovie = styled.article`
+  border-radius: 8px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;

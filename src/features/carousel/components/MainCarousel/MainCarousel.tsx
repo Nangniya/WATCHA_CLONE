@@ -37,8 +37,8 @@ const MainCarousel = ({ data }: IProps) => {
           $transform={-1000 * currentSlide}
           onTransitionEnd={handleTransitionEnd}
         >
-          {DATA.map(({ id, title, overview, backdropPath }) => (
-            <S.SlideLi key={`main-${id}`} $width={980}>
+          {DATA.map(({ id, title, overview, backdropPath }, index) => (
+            <S.SlideLi key={`main-${id}-${index}`} $width={980}>
               <S.MovieLink to={`/content/${id}`}>
                 <S.Image src={`${process.env.IMAGE_URL}/original${backdropPath}`} alt={`${title} image`} />
                 <S.ContentWrapper>

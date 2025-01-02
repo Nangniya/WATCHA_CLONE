@@ -1,3 +1,8 @@
 import styled from '@emotion/styled';
-import { getFontStyle } from '@/styles/typography';
-import { COLORS } from '@/styles/colors';
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+`;

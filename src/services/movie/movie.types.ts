@@ -13,6 +13,7 @@ export interface IMovieDetailResponse {
   id: number;
   adult: boolean;
   backdropPath: string;
+  posterPath: string;
   title: string;
   overview: string;
   tagline: string;
@@ -60,4 +61,8 @@ export interface IMovieCreditResponse {
   id: number;
   cast: IMovieCreditData[];
   crew: IMovieCreditData[];
+}
+
+export interface ISimilarMovieResponse {
+  results: IMovieDetailResponse[];
 }

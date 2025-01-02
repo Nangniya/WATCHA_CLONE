@@ -10,6 +10,7 @@ export const PersonLink = styled(Link)`
   display: flex;
   align-items: center;
   gap: 12px;
+  width: fit-content;
   padding: 8px 0;
 `;
 

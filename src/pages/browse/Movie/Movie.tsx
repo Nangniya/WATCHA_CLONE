@@ -12,7 +12,7 @@ const Movie = () => {
 
   useEffect(() => {
     if (!currentTab) setSearchParams({ tab: 'popular' });
-  }, []);
+  }, [currentTab]);
 
   return (
     <S.Container>
