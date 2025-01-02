@@ -1,4 +1,4 @@
-export const convertSnakeToCamel = <T>(obj: unknown): T => {
+export const convertSnakeToCamel = <T extends object>(obj: unknown): T => {
   if (obj === null || typeof obj !== 'object') return obj as T;
 
   if (Array.isArray(obj)) {
@@ -11,4 +11,15 @@ export const convertSnakeToCamel = <T>(obj: unknown): T => {
     result[camelKey] = convertSnakeToCamel<T>(value);
     return result;
   }, {}) as T;
+};
+
+export const formatRuntime = (runtime: number) => {
+  const hour = Math.floor(runtime / 60);
+  const minute = runtime & 60;
+
+  return hour > 0 ? `${hour}시간 ${minute}분` : `${minute}분`;
+};
+
+export const getReleasedYear = (releaseDate: string | number) => {
+  return releaseDate.toString().slice(0, 4);
 };

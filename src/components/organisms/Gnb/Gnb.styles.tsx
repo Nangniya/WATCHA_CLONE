@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { getFontStyle } from '../../../styles/typography';
 import { COLORS } from '../../../styles/colors';
+import { resetButtonStyle } from '@/styles/common';
 
 export const Container = styled.header`
   position: fixed;
@@ -47,12 +48,8 @@ export const LoggedInUl = styled.ul`
 export const Bell = styled.button`
   display: flex;
   align-items: center;
-  background: 0 0;
-  border: 0;
-  outline: none;
-  padding: 0;
   color: ${COLORS.base.white};
-  cursor: pointer;
+  ${resetButtonStyle};
 `;
 
 export const BellWrapper = styled.div`
@@ -66,15 +63,11 @@ export const NotificationWrapper = styled.div`
 `;
 
 export const Profile = styled.button`
-  background: 0 0;
-  border: 0;
-  outline: none;
-  padding: 0;
+  ${resetButtonStyle};
   width: 32px;
   height: 32px;
   overflow: hidden;
   border-radius: 50%;
-  cursor: pointer;
   img {
     width: 100%;
   }

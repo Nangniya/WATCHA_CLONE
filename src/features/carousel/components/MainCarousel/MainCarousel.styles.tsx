@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { getFontStyle } from '@/styles/typography';
 import { COLORS } from '@/styles/colors';
 import { Link } from 'react-router-dom';
+import { resetButtonStyle } from '@/styles/common';
 
 export const CarouselWrapper = styled.section`
   position: relative;
@@ -23,13 +24,10 @@ export const ArrowWrapper = styled.button`
   display: flex;
   justify-content: center;
   width: 40px;
-  background: 0 0;
-  border: 0;
-  outline: none;
   color: ${COLORS.gray[90]};
   opacity: 0;
   transition: opacity 0.2s ease;
-  cursor: pointer;
+  ${resetButtonStyle};
 
   &.left {
     left: 0;

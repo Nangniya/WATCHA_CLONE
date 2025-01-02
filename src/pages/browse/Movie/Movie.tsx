@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Tab from '@/components/atoms/Tab/Tab';
-import * as S from './Movie.styles';
 import Popular from './Popular/Popular';
 import { TMovieTab } from './Movie.types';
+import * as S from './Movie.styles';
 
 const Movie = () => {
   const [searchParams, setSearchParams] = useSearchParams();

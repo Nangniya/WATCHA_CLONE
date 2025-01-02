@@ -60,19 +60,11 @@ const CategoryCarousel = ({ type = 'normal', category, data }: IProps) => {
   const calculateRankNumber = (index: number) => {
     if (!data) return 0;
 
-    // 앞에 visibleSlidesNumber만큼 복제된 슬라이드
-    if (index < visibleSlidesNumber) {
-      return data.length - visibleSlidesNumber + index + 1;
-    }
-    // 중간의 실제 데이터
-    if (index < visibleSlidesNumber + data.length) {
-      return index - visibleSlidesNumber + 1;
-    }
-    // 뒤에 복제된 슬라이드
+    if (index < visibleSlidesNumber) return data.length - visibleSlidesNumber + index + 1;
+    if (index < visibleSlidesNumber + data.length) return index - visibleSlidesNumber + 1;
     return index - (visibleSlidesNumber + data.length) + 1;
   };
 
-  // viewport에 잘리지 않고 온전히 들어갈 수 있는 슬라이드 개수 계산
   useEffect(() => {
     if (!containerRef.current) return;
 
@@ -98,11 +90,13 @@ const CategoryCarousel = ({ type = 'normal', category, data }: IProps) => {
           $gap={ITEM_GAP}
           onTransitionEnd={handleTransitionEnd}
         >
-          {DATA.map((movie, index) => (
-            <S.SlideLi key={`slide-${movie.id}-${index}`} $width={ITEM_WIDTH}>
-              {type === 'ranking' && <S.RankNumber>{calculateRankNumber(index)}</S.RankNumber>}
-              <S.Image src={`${process.env.IMAGE_URL}/w500${movie.backdropPath}`} alt={movie.title} $type={type} />
-              <S.ContentTitle>{movie.title}</S.ContentTitle>
+          {DATA.map(({ id, backdropPath, title }, index) => (
+            <S.SlideLi key={`slide-${id}`} $width={ITEM_WIDTH}>
+              <S.MovieLink to={`/content/${id}`}>
+                {type === 'ranking' && <S.RankNumber>{calculateRankNumber(index)}</S.RankNumber>}
+                <S.Image src={`${process.env.IMAGE_URL}/w500${backdropPath}`} alt={title} $type={type} />
+                <S.ContentTitle>{title}</S.ContentTitle>
+              </S.MovieLink>
             </S.SlideLi>
           ))}
         </S.SlideUl>
