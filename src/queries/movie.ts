@@ -50,7 +50,6 @@ export const useSimilarMovies = (id: number) => {
 };
 
 export const useAllMovieDetail = (id: number) => {
-  console.log('useAllMovieDetail called with:', id);
   return useSuspenseQueries({
     queries: [
       {

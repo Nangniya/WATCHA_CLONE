@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getFontStyle } from '@/styles/typography';
 import { COLORS } from '@/styles/colors';
 import { resetButtonStyle } from '@/styles/common';
+import { css } from '@emotion/react';
 
 export const Container = styled.div`
   padding: 40px 0;
@@ -52,13 +53,21 @@ export const Overview = styled.div`
   color: ${COLORS.gray[60]};
 `;
 
-export const Video = styled(Link)`
+export const Video = styled(Link)<{ $disabled?: boolean }>`
   display: flex;
   align-items: center;
   gap: 8px;
   text-decoration: none;
   ${getFontStyle('body', 'large')};
   color: ${COLORS.base.white};
+
+  ${({ $disabled }) =>
+    $disabled &&
+    css`
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    `}
 `;
 
 export const BackDrop = styled.div`

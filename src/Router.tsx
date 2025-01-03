@@ -8,6 +8,7 @@ import MovieDetail from '@/pages/content/MovieDetail/MovieDetail';
 import VideoPlayer from '@/pages/watch/VideoPlayer/VideoPlayer';
 import Search from '@/pages/search/Search';
 import MovieCredits from '@/pages/content/MovieDetail/credits/MovieCredits/MovieCredits';
+import PersonWorks from './pages/browse/People/PersonWorks/PersonWorks';
 
 const Router = () => {
   return (
@@ -26,6 +27,9 @@ const Router = () => {
               <Route index element={<MovieDetail />} />
               <Route path="credits" element={<MovieCredits />} />
             </Route>
+          </Route>
+          <Route path="people">
+            <Route path=":personId" element={<PersonWorks />} />
           </Route>
           <Route path="search" element={<Search />} />
         </Route>

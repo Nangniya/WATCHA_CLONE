@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useAllMovieDetail } from '@/queries/movie';
 import NavLink from '@/components/atoms/NavLink/NavLink';
 import Person from '@/components/molecules/Person/Person';
@@ -47,7 +47,10 @@ const MovieDetailContent = ({ movieId }: IProps) => {
         </S.BackDrop>
       </S.HeaderContainer>
       <S.AdditionalContainer>
-        <S.Video to={`/watch/${VIDEO.results[0].key}`}>
+        <S.Video
+          to={VIDEO.results.length > 0 ? `/watch/${VIDEO.results[0].key}` : '#'}
+          $disabled={VIDEO.results.length <= 0}
+        >
           <Play width="20" height="20" /> 미리보기
         </S.Video>
         <S.RightOptions>
