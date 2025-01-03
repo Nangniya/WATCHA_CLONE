@@ -6,8 +6,8 @@ export const TYPOGRAPHY = {
       fontWeight: 700,
     },
     medium: {
-      fontSize: '45px',
-      lineHeight: '52px',
+      fontSize: '40px',
+      lineHeight: '50px',
       fontWeight: 700,
     },
     small: {

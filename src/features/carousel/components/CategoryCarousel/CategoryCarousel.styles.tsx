@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { getFontStyle } from '@/styles/typography';
 import { COLORS } from '@/styles/colors';
 import { CarouselType } from './CategoryCarousel.types';
+import { resetButtonStyle } from '@/styles/common';
 
 export const Container = styled.section`
   position: relative;
@@ -32,13 +33,10 @@ export const ArrowWrapper = styled.button`
   display: flex;
   justify-content: center;
   width: 40px;
-  background: 0 0;
-  border: 0;
-  outline: none;
   color: ${COLORS.gray[90]};
   opacity: 0;
   transition: opacity 0.2s ease;
-  cursor: pointer;
+  ${resetButtonStyle};
 
   &.left {
     left: 0;
@@ -70,6 +68,11 @@ export const SlideLi = styled.li<{ $width: number }>`
   flex-shrink: 0;
   width: ${({ $width }) => `${$width}px`};
   cursor: pointer;
+`;
+
+export const MovieLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;
 
 export const Image = styled.img<{ $type: CarouselType }>`
