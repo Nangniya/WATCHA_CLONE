@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import SearchToolTip from '@/features/search/components/molcules/SearchToolTip/SearchToolTip';
 import Search from '@/assets/icons/search.svg';
 import X from '@/assets/icons/clear.svg';

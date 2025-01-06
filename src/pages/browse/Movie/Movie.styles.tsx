@@ -11,7 +11,7 @@ export const Container = styled.div`
 export const TabContainer = styled.section`
   position: sticky;
   top: 72px;
-  padding: 24px 40px 12px 40px;
+  padding: 24px 40px 18px 40px;
   background-color: ${COLORS.base.black};
   z-index: 5;
 `;

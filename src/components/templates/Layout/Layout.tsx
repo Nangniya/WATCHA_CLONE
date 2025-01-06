@@ -6,9 +6,11 @@ import * as S from './Layout.styles';
 const Layout = () => {
   return (
     <S.OuterWrapper>
-      <Gnb />
+      <Gnb />/
       <S.InnerWrapper>
-        <Outlet />
+        <S.InnerContainer>
+          <Outlet />
+        </S.InnerContainer>
       </S.InnerWrapper>
       <Fnb />
     </S.OuterWrapper>

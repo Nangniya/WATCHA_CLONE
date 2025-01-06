@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useLocation } from 'react-router';
 import NavLink from '@/components/atoms/NavLink/NavLink';
 import Notification from '@/components/organisms/Notification/Notification';
 import SearchField from '@/features/search/components/molcules/SearchField/SearchField';
@@ -15,6 +16,7 @@ const Gnb = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isBellOpen, setIsBellOpen] = useState(false);
   const notificationRef = useRef<HTMLDivElement>(null);
+  const { pathname } = useLocation();
 
   const handleBellClick = () => setIsBellOpen((prev) => !prev);
   const closeNotification = () => {
@@ -29,10 +31,10 @@ const Gnb = () => {
         <S.LogoWrapper to="/">
           <Logo width="88" height="26" />
         </S.LogoWrapper>
-        <NavLink to={PATH.BROWSE.FAVORITE} text="구독" />
-        <NavLink to={PATH.BROWSE.MOVIE} text="영화" />
-        <NavLink to={PATH.BROWSE.TV} text="TV" />
-        <NavLink to={PATH.BROWSE.PEOPLE} text="인물" />
+        <NavLink to={PATH.BROWSE.FAVORITE} text="구독" isActive={pathname === PATH.BROWSE.FAVORITE} />
+        <NavLink to={PATH.BROWSE.MOVIE} text="영화" isActive={pathname === PATH.BROWSE.MOVIE} />
+        <NavLink to={PATH.BROWSE.TV} text="TV" isActive={pathname === PATH.BROWSE.TV} />
+        <NavLink to={PATH.BROWSE.PEOPLE} text="인물" isActive={pathname === PATH.BROWSE.PEOPLE} />
       </S.LeftContainer>
       <S.RightContainer>
         <SearchField />
