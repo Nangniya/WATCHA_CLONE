@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { getFontStyle } from '@/styles/typography';
 import { COLORS } from '@/styles/colors';
 import { resetButtonStyle } from '@/styles/common';

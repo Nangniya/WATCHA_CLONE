@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router';
 import { usePersonDetail, usePersonMovies } from '@/queries/people';
 import * as S from './PersonWorks.styles';
 

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router';
 import { useAllMovieDetail } from '@/queries/movie';
 import NavLink from '@/components/atoms/NavLink/NavLink';
 import Person from '@/components/molecules/Person/Person';
@@ -7,10 +7,11 @@ import Play from '@/assets/icons/play.svg';
 import Plus from '@/assets/icons/plus.svg';
 import Kebab from '@/assets/icons/kebab.svg';
 import { formatRuntime, getReleasedYear } from '@/utils/formatters';
-import { IProps, TDetailTab } from './MovieDetailContent.types';
+import { TDetailTab } from './MovieDetailContent.types';
 import * as S from './MovieDetailContent.styles';
 
-const MovieDetailContent = ({ movieId }: IProps) => {
+const MovieDetailContent = () => {
+  const { movieId } = useParams<{ movieId: string }>();
   const [searchParams, setSearchParams] = useSearchParams();
   const currentTab = searchParams.get('tab') as TDetailTab | null;
 
@@ -27,7 +28,7 @@ const MovieDetailContent = ({ movieId }: IProps) => {
   if (similarError != null) throw new Error('비슷한 콘텐츠 정보를 가져오는 중 문제 발생');
 
   useEffect(() => {
-    if (!currentTab) setSearchParams({ tab: 'content' });
+    if (!currentTab) setSearchParams({ tab: 'content' }, { replace: true });
   }, [movieId]);
 
   return (

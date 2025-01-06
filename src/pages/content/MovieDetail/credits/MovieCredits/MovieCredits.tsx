@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
 import Person from '@/components/molecules/Person/Person';
 import { useMovieCredit } from '@/queries/movie';
 import * as S from './MovieCredits.styles';
