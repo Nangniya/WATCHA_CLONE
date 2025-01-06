@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, useParams, useSearchParams } from 'react-router';
+import { Link, useSearchParams } from 'react-router';
 import { useAllMovieDetail } from '@/queries/movie';
 import NavLink from '@/components/atoms/NavLink/NavLink';
 import Person from '@/components/molecules/Person/Person';
@@ -7,11 +7,10 @@ import Play from '@/assets/icons/play.svg';
 import Plus from '@/assets/icons/plus.svg';
 import Kebab from '@/assets/icons/kebab.svg';
 import { formatRuntime, getReleasedYear } from '@/utils/formatters';
-import { TDetailTab } from './MovieDetailContent.types';
+import { IProps, TDetailTab } from './MovieDetailContent.types';
 import * as S from './MovieDetailContent.styles';
 
-const MovieDetailContent = () => {
-  const { movieId } = useParams<{ movieId: string }>();
+const MovieDetailContent = ({ movieId }: IProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentTab = searchParams.get('tab') as TDetailTab | null;
 
@@ -20,7 +19,7 @@ const MovieDetailContent = () => {
     { data: VIDEO, error: videoError },
     { data: CREDIT, error: creditError },
     { data: SIMILAR, error: similarError },
-  ] = useAllMovieDetail(Number(movieId));
+  ] = useAllMovieDetail(movieId);
 
   if (detailError != null) throw new Error('상세 정보를 가져오는 중 문제 발생');
   if (videoError != null) throw new Error('비디오 정보를 가져오는 중 문제 발생');
