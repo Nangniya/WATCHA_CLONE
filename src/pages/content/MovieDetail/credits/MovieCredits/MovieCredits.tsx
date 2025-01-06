@@ -1,13 +1,11 @@
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
 import Person from '@/components/molecules/Person/Person';
 import { useMovieCredit } from '@/queries/movie';
 import * as S from './MovieCredits.styles';
 
 const MovieCredits = () => {
   const { movieId } = useParams<{ movieId: string }>();
-  const { data: CREDIT, error } = useMovieCredit(Number(movieId));
-
-  if (error != null) throw new Error('출연진 정보를 가져오는 중 문제 발생');
+  const { data: CREDIT } = useMovieCredit(Number(movieId));
 
   return (
     <S.Container>

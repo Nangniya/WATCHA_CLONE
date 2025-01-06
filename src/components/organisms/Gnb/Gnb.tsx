@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import NavLink from '@/components/atoms/NavLink/NavLink';
 import Notification from '@/components/organisms/Notification/Notification';
 import SearchField from '@/features/search/components/molcules/SearchField/SearchField';

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router';
 import { useAllMovieDetail } from '@/queries/movie';
 import NavLink from '@/components/atoms/NavLink/NavLink';
 import Person from '@/components/molecules/Person/Person';
@@ -14,20 +14,10 @@ const MovieDetailContent = ({ movieId }: IProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentTab = searchParams.get('tab') as TDetailTab | null;
 
-  const [
-    { data: DETAIL, error: detailError },
-    { data: VIDEO, error: videoError },
-    { data: CREDIT, error: creditError },
-    { data: SIMILAR, error: similarError },
-  ] = useAllMovieDetail(Number(movieId));
-
-  if (detailError != null) throw new Error('상세 정보를 가져오는 중 문제 발생');
-  if (videoError != null) throw new Error('비디오 정보를 가져오는 중 문제 발생');
-  if (creditError != null) throw new Error('출연진 정보를 가져오는 중 문제 발생');
-  if (similarError != null) throw new Error('비슷한 콘텐츠 정보를 가져오는 중 문제 발생');
+  const [{ data: DETAIL }, { data: VIDEO }, { data: CREDIT }, { data: SIMILAR }] = useAllMovieDetail(movieId);
 
   useEffect(() => {
-    if (!currentTab) setSearchParams({ tab: 'content' });
+    if (!currentTab) setSearchParams({ tab: 'content' }, { replace: true });
   }, [movieId]);
 
   return (

@@ -1,4 +1,4 @@
-import { LinkProps } from 'react-router-dom';
+import { LinkProps } from 'react-router';
 
 /* NavLink.tsx */
 export interface IProps extends LinkProps {

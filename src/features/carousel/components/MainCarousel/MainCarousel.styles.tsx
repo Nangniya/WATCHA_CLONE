@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { getFontStyle } from '@/styles/typography';
 import { COLORS } from '@/styles/colors';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { resetButtonStyle } from '@/styles/common';
 
 export const CarouselWrapper = styled.section`

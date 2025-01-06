@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router';
 import Portal from '@/providers/Portal/Portal';
 import X from '@/assets/icons/x.svg';
 import * as S from './VideoPlayer.styles';
