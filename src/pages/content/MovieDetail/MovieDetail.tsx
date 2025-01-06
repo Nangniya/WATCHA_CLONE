@@ -8,6 +8,7 @@ import * as S from './MovieDetail.styles';
 
 const MovieDetail = () => {
   const { movieId } = useParams<{ movieId: string }>();
+
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <Suspense

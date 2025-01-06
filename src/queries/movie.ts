@@ -7,17 +7,10 @@ import {
   getSimilarMovies,
 } from '@/services/movie/movie';
 
-export const usePopularMovies = () => {
+export const usePopularMovies = (page?: number) => {
   return useSuspenseQuery({
-    queryKey: ['movie', 'popular'],
-    queryFn: getPopularMovies,
-  });
-};
-
-export const usePopularMovies2 = () => {
-  return useSuspenseQuery({
-    queryKey: ['movie', 'popular', '2'],
-    queryFn: () => getPopularMovies({ page: 2 }),
+    queryKey: ['movie', 'popular', page],
+    queryFn: () => getPopularMovies({ page }),
   });
 };
 
