@@ -19,7 +19,9 @@ const SearchField = () => {
   const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
-  const handleSearchClick = () => navigate(PATH.SEARCH);
+  const handleSearchClick = () => {
+    if (!value) navigate(PATH.SEARCH);
+  };
   const handleClearBtnClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.stopPropagation();
     setValue('');
