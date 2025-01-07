@@ -1,10 +1,8 @@
+import { useState } from 'react';
+import SearchCategoryBtn from '@/features/search/components/atoms/SearchCategoryBtn/SearchCategoryBtn';
 import { useSearch } from '@/queries/search';
 import { IProps } from './SearchContent.types';
 import * as S from './SearchContent.styles';
-import Tab from '@/components/atoms/Tab/Tab';
-import { useState } from 'react';
-import NavLink from '@/components/atoms/NavLink/NavLink';
-import SearchCategoryBtn from '@/features/search/components/atoms/SearchCategoryBtn/SearchCategoryBtn';
 
 const SearchContent = ({ query }: IProps) => {
   if (!query.trim()) return <S.EmptyQuery>검색어를 입력해주세요</S.EmptyQuery>;
@@ -32,13 +30,25 @@ const SearchContent = ({ query }: IProps) => {
         )}
       </S.TabContainer>
       {domain === 'movie' && (
-        <S.MovieGrid>
+        <S.Grid>
           {MOVIEDATA.map(({ id, posterPath }) => (
             <S.MovieItem key={`search-movie-${id}`}>
               <img src={`${process.env.IMAGE_URL}/original${posterPath}`} alt={`${id}-image`} />
             </S.MovieItem>
           ))}
-        </S.MovieGrid>
+        </S.Grid>
+      )}
+      {domain === 'person' && (
+        <S.Grid>
+          {PERSONDATA.map(({ id, profilePath, name }) => (
+            <S.PersonItem key={`search-person-${id}`}>
+              <S.PersonImgWrapper>
+                <img src={`${process.env.IMAGE_URL}/original${profilePath}`} alt={`${id}-image`} />
+              </S.PersonImgWrapper>
+              <S.PersonName>{name}</S.PersonName>
+            </S.PersonItem>
+          ))}
+        </S.Grid>
       )}
     </S.Container>
   );

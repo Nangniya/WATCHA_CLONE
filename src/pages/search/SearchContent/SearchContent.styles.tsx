@@ -22,7 +22,7 @@ export const TabContainer = styled.ul`
   border-bottom: 2px solid ${COLORS.gray[10]};
 `;
 
-export const MovieGrid = styled.section`
+export const Grid = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 16px;
@@ -37,4 +37,28 @@ export const MovieItem = styled.article`
     width: 100%;
     height: 100%;
   }
+`;
+
+export const PersonItem = styled.article`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const PersonImgWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+`;
+
+export const PersonName = styled.p`
+  ${getFontStyle('body', 'large')};
+  color: ${COLORS.base.white};
 `;
