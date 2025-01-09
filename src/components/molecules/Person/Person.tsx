@@ -6,7 +6,11 @@ const Person = ({ id, name, profilePath, knownForDepartment }: IMovieCreditData)
     <S.Container>
       <S.PersonLink to={`/people/${id}`}>
         <S.ImgContainer>
-          <img src={`${process.env.IMAGE_URL}/original${profilePath}`} alt={`${name} image`} />
+          {profilePath ? (
+            <img src={`${process.env.IMAGE_URL}/original${profilePath}`} alt={`${name} image`} />
+          ) : (
+            <S.NoImage>No Image</S.NoImage>
+          )}
         </S.ImgContainer>
         <S.CastInfo>
           <S.CastName>{name}</S.CastName>

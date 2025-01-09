@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router';
 import { getFontStyle } from '@/styles/typography';
 import { COLORS } from '@/styles/colors';
-import { resetButtonStyle } from '@/styles/common';
+import { hoverDimEffect, resetButtonStyle } from '@/styles/common';
 import { css } from '@emotion/react';
 
 export const Container = styled.div`
@@ -143,7 +143,7 @@ export const PeopleGrid = styled.ul`
   width: 100%;
 `;
 
-export const H2 = styled.h2`
+export const ContentTypeTitle = styled.h2`
   ${getFontStyle('title', 'medium')};
   color: ${COLORS.base.white};
 `;
@@ -164,6 +164,7 @@ export const RelatedContainer = styled.section`
   display: flex;
   flex-direction: column;
   padding: 0 40px;
+  gap: 6px;
 `;
 
 export const SimilarGrid = styled.div`
@@ -181,4 +182,24 @@ export const SimilarMovie = styled.article`
     width: 100%;
     height: 100%;
   }
+`;
+
+export const MovieLink = styled(Link)<{ $isImgNull: boolean; $title: string }>`
+  text-decoration: none;
+  ${hoverDimEffect}
+  ${({ $isImgNull, $title }) =>
+    $isImgNull &&
+    css`
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background-color: ${COLORS.gray[60]};
+
+      &::after {
+        content: '${$title}';
+        ${getFontStyle('body', 'medium')}
+        color: ${COLORS.base.black};
+      }
+    `}
 `;
