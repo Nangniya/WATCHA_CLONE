@@ -9,11 +9,11 @@ import * as S from './Search.styles';
 const Search = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('q') || '';
+
   return (
     <S.Container>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <Suspense
-          key={query}
           fallback={
             <S.SkeletonContainer>
               {Array(5)

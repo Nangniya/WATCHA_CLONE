@@ -12,7 +12,6 @@ const MovieDetail = () => {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <Suspense
-        key={movieId}
         fallback={
           <S.LoadingContainer>
             <LoadingSpinner />

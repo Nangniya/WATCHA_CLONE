@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import { getFontStyle } from '@/styles/typography';
 import { COLORS } from '@/styles/colors';
+import { hoverDimEffect } from '@/styles/common';
+import { Link } from 'react-router';
 
 export const EmptyQuery = styled.p`
   ${getFontStyle('body', 'large')};
@@ -39,10 +41,18 @@ export const MovieItem = styled.article`
   }
 `;
 
-export const PersonItem = styled.article`
+export const MovieLink = styled(Link)`
+  text-decoration: none;
+  ${hoverDimEffect};
+`;
+
+export const PersonItem = styled.article``;
+
+export const PersonLink = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-decoration: none;
 `;
 
 export const PersonImgWrapper = styled.div`

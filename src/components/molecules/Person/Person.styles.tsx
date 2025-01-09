@@ -28,6 +28,19 @@ export const ImgContainer = styled.div`
   }
 `;
 
+export const NoImage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: ${COLORS.gray[60]};
+  color: ${COLORS.base.black};
+  ${getFontStyle('body', 'medium')};
+  text-align: center;
+  word-break: break-word;
+`;
+
 export const CastInfo = styled.div`
   display: flex;
   flex-direction: column;

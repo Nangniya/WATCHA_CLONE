@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router';
+import { useSearchParams } from 'react-router';
 import { useAllMovieDetail } from '@/queries/movie';
 import NavLink from '@/components/atoms/NavLink/NavLink';
 import Person from '@/components/molecules/Person/Person';
@@ -38,7 +38,7 @@ const MovieDetailContent = ({ movieId }: IProps) => {
       </S.HeaderContainer>
       <S.AdditionalContainer>
         <S.Video
-          to={VIDEO.results.length > 0 ? `/watch/${VIDEO.results[0].key}` : '#'}
+          to={VIDEO.results.length > 0 && VIDEO.results[0].site === 'YouTube' ? `/watch/${VIDEO.results[0].key}` : '#'}
           $disabled={VIDEO.results.length <= 0}
         >
           <Play width="20" height="20" /> 미리보기
@@ -61,7 +61,7 @@ const MovieDetailContent = ({ movieId }: IProps) => {
       {currentTab === 'content' && (
         <S.CastContainer>
           <S.CastTitleContainer>
-            <S.H2>출연/제작</S.H2>
+            <S.ContentTypeTitle>출연/제작</S.ContentTypeTitle>
             <S.More to={`/content/${movieId}/credits`}>더보기</S.More>
           </S.CastTitleContainer>
           <S.PeopleGrid>
@@ -79,13 +79,13 @@ const MovieDetailContent = ({ movieId }: IProps) => {
       )}
       {currentTab === 'related' && (
         <S.RelatedContainer>
-          <S.H2>비슷한 콘텐츠</S.H2>
+          <S.ContentTypeTitle>비슷한 콘텐츠</S.ContentTypeTitle>
           <S.SimilarGrid>
-            {SIMILAR.results.map(({ id, posterPath }) => (
+            {SIMILAR.results.map(({ id, title, posterPath }) => (
               <S.SimilarMovie key={`similar-${movieId}-${id}`}>
-                <Link to={`/content/${id}`}>
-                  <img src={`${process.env.IMAGE_URL}/original/${posterPath}`} />
-                </Link>
+                <S.MovieLink to={`/content/${id}`} $isImgNull={!posterPath} $title={title}>
+                  {posterPath && <img src={`${process.env.IMAGE_URL}/original/${posterPath}`} alt="포스터" />}
+                </S.MovieLink>
               </S.SimilarMovie>
             ))}
           </S.SimilarGrid>
