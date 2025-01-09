@@ -5,6 +5,7 @@ export const OuterWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${COLORS.base.black};
+  min-height: calc(100dvh);
 `;
 
 export const InnerWrapper = styled.main`
