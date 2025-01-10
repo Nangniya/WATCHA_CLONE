@@ -1,8 +1,7 @@
 import Arrow from '@/assets/icons/arrow.svg';
 import { usePopularTvs } from '@/queries/tv';
-import * as S from './PopularContent.styles';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import useInterval from '@/hooks/useInterval';
+import * as S from './PopularContent.styles';
 
 const PopularContent = () => {
   const { data: POPULARTV } = usePopularTvs();
@@ -35,15 +34,14 @@ const PopularContent = () => {
     : [];
 
   useEffect(() => {
-    timerRef.current = setTimeout(() => {
-      if (!POPULARTV) return;
-
-      setIsTransitioning(true);
-      setCurrentSlide((prev) => prev + 1);
-    }, 5000);
+    if (!isTransitioning) {
+      timerRef.current = setTimeout(() => {
+        handleSlideChange('next');
+      }, 4000);
+    }
 
     return () => clearTimeout(timerRef.current);
-  }, [currentSlide]);
+  }, [isTransitioning, POPULARTV]);
 
   return (
     <S.MainTvCarouselContainer>

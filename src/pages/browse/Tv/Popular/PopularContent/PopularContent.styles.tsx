@@ -23,7 +23,7 @@ export const ProgressBar = styled.div<{ $isTransitioning?: boolean }>`
     left: 0;
     height: 100%;
     background-color: ${COLORS.gray[60]};
-    animation: progress 4s linear infinite;
+    animation: progress 4s linear;
     animation-play-state: ${({ $isTransitioning }) => ($isTransitioning ? 'paused' : 'running')};
   }
 
