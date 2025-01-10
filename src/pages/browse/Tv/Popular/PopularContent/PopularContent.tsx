@@ -1,7 +1,8 @@
 import Arrow from '@/assets/icons/arrow.svg';
 import { usePopularTvs } from '@/queries/tv';
 import * as S from './PopularContent.styles';
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import useInterval from '@/hooks/useInterval';
 
 const PopularContent = () => {
   const { data: POPULARTV } = usePopularTvs();
@@ -9,12 +10,17 @@ const PopularContent = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const handleSlideChange = (direction: 'next' | 'prev') => () => {
-    if (!POPULARTV || isTransitioning) return;
+  const timerRef = useRef<NodeJS.Timeout>();
 
-    setIsTransitioning(true);
-    setCurrentSlide((prev) => prev + (direction === 'next' ? 1 : -1));
-  };
+  const handleSlideChange = useCallback(
+    (direction: 'next' | 'prev') => {
+      if (!POPULARTV || isTransitioning) return;
+
+      setIsTransitioning(true);
+      setCurrentSlide((prev) => prev + (direction === 'next' ? 1 : -1));
+    },
+    [isTransitioning, POPULARTV],
+  );
 
   const handleTransitionEnd = () => {
     if (!POPULARTV) return;
@@ -28,9 +34,21 @@ const PopularContent = () => {
     ? [POPULARTV.results[POPULARTV.results.length - 1], ...POPULARTV.results, POPULARTV.results[0]]
     : [];
 
+  useEffect(() => {
+    timerRef.current = setTimeout(() => {
+      if (!POPULARTV) return;
+
+      setIsTransitioning(true);
+      setCurrentSlide((prev) => prev + 1);
+    }, 5000);
+
+    return () => clearTimeout(timerRef.current);
+  }, [currentSlide]);
+
   return (
     <S.MainTvCarouselContainer>
-      <S.ArrowWrapper className="left" onClick={handleSlideChange('prev')}>
+      <S.ProgressBar key={currentSlide} $isTransitioning={isTransitioning} />
+      <S.ArrowWrapper className="left" onClick={() => handleSlideChange('prev')}>
         <Arrow width="10" height="40" />
       </S.ArrowWrapper>
       <S.UlWrapper>
@@ -51,7 +69,7 @@ const PopularContent = () => {
           ))}
         </S.SlideUl>
       </S.UlWrapper>
-      <S.ArrowWrapper className="right" onClick={handleSlideChange('next')}>
+      <S.ArrowWrapper className="right" onClick={() => handleSlideChange('next')}>
         <Arrow width="10" height="40" />
       </S.ArrowWrapper>
     </S.MainTvCarouselContainer>

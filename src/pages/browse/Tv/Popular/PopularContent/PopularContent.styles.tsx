@@ -11,6 +11,32 @@ export const MainTvCarouselContainer = styled.section`
   }
 `;
 
+export const ProgressBar = styled.div<{ $isTransitioning?: boolean }>`
+  width: 100%;
+  height: 3px;
+  background-color: ${COLORS.gray[10]};
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: ${COLORS.gray[60]};
+    animation: progress 4s linear infinite;
+    animation-play-state: ${({ $isTransitioning }) => ($isTransitioning ? 'paused' : 'running')};
+  }
+
+  @keyframes progress {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+`;
+
 export const ArrowWrapper = styled.button`
   position: absolute;
   top: 50%;
