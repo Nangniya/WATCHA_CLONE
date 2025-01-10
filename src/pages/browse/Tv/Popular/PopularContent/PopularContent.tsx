@@ -55,12 +55,12 @@ const PopularContent = () => {
           $isTransitioning={isTransitioning}
           onTransitionEnd={handleTransitionEnd}
         >
-          {DATA.map(({ id, title, backdropPath }, index) => (
+          {DATA.map(({ id, originalName, backdropPath }, index) => (
             <S.SlideLi key={`main-tv-${id}-${index}`} $width={'100dvw'}>
               <S.MovieLink to={`/content/${id}`}>
-                <S.Image src={`${process.env.IMAGE_URL}/original${backdropPath}`} alt={`${title} image`} />
+                <S.Image src={`${process.env.IMAGE_URL}/original${backdropPath}`} alt={`${originalName} image`} />
                 <S.ContentWrapper>
-                  <S.Title>{title}</S.Title>
+                  <S.Title>{originalName}</S.Title>
                 </S.ContentWrapper>
               </S.MovieLink>
             </S.SlideLi>

@@ -12,11 +12,12 @@ export const MainTvCarouselContainer = styled.section`
 `;
 
 export const ProgressBar = styled.div<{ $isTransitioning?: boolean }>`
+  position: relative;
   width: 100%;
   height: 3px;
   background-color: ${COLORS.gray[10]};
 
-  &::after {
+  &::before {
     content: '';
     position: absolute;
     top: 0;
@@ -85,38 +86,37 @@ export const SlideLi = styled.li<{ $width: string }>`
   flex-shrink: 0;
   width: ${({ $width }) => `${$width}`};
   overflow: hidden;
-
   &::after {
     content: '';
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 50%;
-    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.8));
+    z-index: 1;
   }
 `;
 
 export const MovieLink = styled(Link)`
+  display: flex;
+  width: 100%;
+  height: 100%;
   text-decoration: none;
 `;
 
 export const Image = styled.img`
   width: 100%;
+  z-index: 5;
 `;
 
 export const ContentWrapper = styled.div`
   position: absolute;
   bottom: 40px;
   left: 40px;
-  right: 40px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  z-index: 1;
-  color: ${COLORS.base.white};
+  z-index: 10;
 `;
 
 export const Title = styled.h3`
   ${getFontStyle('display', 'large')};
+  color: ${COLORS.base.white};
 `;
