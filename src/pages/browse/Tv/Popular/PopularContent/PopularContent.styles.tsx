@@ -4,17 +4,11 @@ import { COLORS } from '@/styles/colors';
 import { Link } from 'react-router';
 import { resetButtonStyle } from '@/styles/common';
 
-export const CarouselWrapper = styled.section`
+export const MainTvCarouselContainer = styled.section`
   position: relative;
-  padding: 0 40px;
-
   &:hover button {
     opacity: 1;
   }
-`;
-
-export const MainCarousel = styled.div`
-  overflow: hidden;
 `;
 
 export const ArrowWrapper = styled.button`
@@ -28,37 +22,42 @@ export const ArrowWrapper = styled.button`
   opacity: 0;
   transition: opacity 0.2s ease;
   ${resetButtonStyle};
+  z-index: 10;
+
+  &:hover {
+    color: ${COLORS.base.white};
+    transition: color 0.2s ease;
+  }
 
   &.left {
-    left: 0;
+    left: 40px;
     svg {
       transform: rotate(180deg);
     }
   }
 
   &.right {
-    right: 0;
+    right: 40px;
   }
 `;
 
+export const UlWrapper = styled.div`
+  overflow: hidden;
+`;
+
 export const SlideUl = styled.ul<{
+  $currentSlide: number;
   $isTransitioning: boolean;
-  $gap: number;
-  $transform: number;
 }>`
   display: flex;
-  gap: ${({ $gap }) => `${$gap}px`};
-  width: 100%;
-  padding: 12px 0;
-  transform: ${({ $transform }) => `translateX(${$transform}px)`};
+  transform: translateX(${({ $currentSlide }) => -$currentSlide * 100}dvw);
   transition: ${({ $isTransitioning }) => ($isTransitioning ? 'transform 1s ease-in-out' : 'none')};
 `;
 
-export const SlideLi = styled.li<{ $width: number }>`
+export const SlideLi = styled.li<{ $width: string }>`
   position: relative;
   flex-shrink: 0;
-  width: ${({ $width }) => `${$width}px`};
-  border-radius: 8px;
+  width: ${({ $width }) => `${$width}`};
   overflow: hidden;
 
   &::after {
@@ -94,8 +93,4 @@ export const ContentWrapper = styled.div`
 
 export const Title = styled.h3`
   ${getFontStyle('display', 'large')};
-`;
-
-export const Description = styled.p`
-  ${getFontStyle('body', 'medium')};
 `;

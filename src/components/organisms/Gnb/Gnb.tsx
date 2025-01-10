@@ -31,10 +31,9 @@ const Gnb = () => {
         <S.LogoWrapper to="/">
           <Logo width="88" height="26" />
         </S.LogoWrapper>
-        <NavLink to={PATH.BROWSE.FAVORITE} text="구독" isActive={pathname === PATH.BROWSE.FAVORITE} />
+        <NavLink to={PATH.BROWSE.FAVORITE} text="찜" isActive={pathname === PATH.BROWSE.FAVORITE} />
         <NavLink to={PATH.BROWSE.MOVIE} text="영화" isActive={pathname === PATH.BROWSE.MOVIE} />
         <NavLink to={PATH.BROWSE.TV} text="TV" isActive={pathname === PATH.BROWSE.TV} />
-        <NavLink to={PATH.BROWSE.PEOPLE} text="인물" isActive={pathname === PATH.BROWSE.PEOPLE} />
       </S.LeftContainer>
       <S.RightContainer>
         <SearchField />
