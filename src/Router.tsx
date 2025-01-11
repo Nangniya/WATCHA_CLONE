@@ -1,14 +1,15 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
+import { lazy, Suspense } from 'react';
 import Layout from '@/components/templates/Layout/Layout';
 import Movie from '@/pages/browse/Movie/Movie';
 import Favorite from '@/pages/browse/Favorite/Favorite';
 import Tv from '@/pages/browse/Tv/Tv';
-import People from '@/pages/browse/People/People';
-import MovieDetail from '@/pages/content/MovieDetail/MovieDetail';
-import VideoPlayer from '@/pages/watch/VideoPlayer/VideoPlayer';
-import Search from '@/pages/search/Search';
-import MovieCredits from '@/pages/content/MovieDetail/credits/MovieCredits/MovieCredits';
-import PersonWorks from './pages/browse/People/PersonWorks/PersonWorks';
+
+const MovieDetail = lazy(() => import('@/pages/content/MovieDetail/MovieDetail'));
+const VideoPlayer = lazy(() => import('@/pages/watch/VideoPlayer/VideoPlayer'));
+const Search = lazy(() => import('@/pages/search/Search'));
+const MovieCredits = lazy(() => import('@/pages/content/MovieDetail/credits/MovieCredits/MovieCredits'));
+const PersonWorks = lazy(() => import('./pages/people/PersonWorks/PersonWorks'));
 
 const Router = () => {
   return (
@@ -20,21 +21,55 @@ const Router = () => {
             <Route path="favorite" element={<Favorite />} />
             <Route path="movie" element={<Movie />} />
             <Route path="tv" element={<Tv />} />
-            <Route path="people" element={<People />} />
           </Route>
           <Route path="content">
             <Route path=":movieId">
-              <Route index element={<MovieDetail />} />
-              <Route path="credits" element={<MovieCredits />} />
+              <Route
+                index
+                element={
+                  <Suspense fallback={null}>
+                    <MovieDetail />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="credits"
+                element={
+                  <Suspense fallback={null}>
+                    <MovieCredits />
+                  </Suspense>
+                }
+              />
             </Route>
           </Route>
           <Route path="people">
-            <Route path=":personId" element={<PersonWorks />} />
+            <Route
+              path=":personId"
+              element={
+                <Suspense fallback={null}>
+                  <PersonWorks />
+                </Suspense>
+              }
+            />
           </Route>
-          <Route path="search" element={<Search />} />
+          <Route
+            path="search"
+            element={
+              <Suspense fallback={null}>
+                <Search />
+              </Suspense>
+            }
+          />
         </Route>
         <Route path="watch">
-          <Route path=":videoId" element={<VideoPlayer />} />
+          <Route
+            path=":videoId"
+            element={
+              <Suspense fallback={null}>
+                <VideoPlayer />
+              </Suspense>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>

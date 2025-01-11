@@ -7,6 +7,7 @@ export interface IBaseMovieData {
   backdropPath: string;
   title: string;
   overview: string;
+  name: string;
 }
 
 export interface IMovieDetailResponse {

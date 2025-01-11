@@ -31,7 +31,6 @@ const MainCarousel = ({ data }: IProps) => {
       </S.ArrowWrapper>
       <S.MainCarousel>
         <S.SlideUl
-          $currentSlide={currentSlide}
           $isTransitioning={isTransitioning}
           $gap={20}
           $transform={-1000 * currentSlide}
