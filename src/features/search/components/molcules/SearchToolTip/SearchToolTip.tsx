@@ -27,7 +27,7 @@ const SearchToolTip = ({ anchorEl, onClose }: IProps) => {
         <S.Container>
           <S.Arrow />
           <S.MessageBox>
-            <S.Message>{`'한국 드라마', '일본 애니메이션'으로도 검색할 수 있어요`}</S.Message>
+            <S.Message>{`한 번의 검색으로 영화, TV, 인물을 조회할 수 있어요.`}</S.Message>
             <S.CloseBtn onClick={onClose}>확인</S.CloseBtn>
           </S.MessageBox>
         </S.Container>

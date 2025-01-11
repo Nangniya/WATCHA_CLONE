@@ -26,6 +26,8 @@ export const Text = styled.div`
   ${getFontStyle('headline', 'medium')};
   background-color: ${COLORS.background[60]};
   color: ${COLORS.base.white};
+  text-align: center;
+  white-space: pre-line;
 `;
 
 export const BottomBar = styled.div`

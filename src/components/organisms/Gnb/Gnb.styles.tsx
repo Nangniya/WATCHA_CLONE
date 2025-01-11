@@ -31,9 +31,15 @@ export const RightContainer = styled.nav`
 
 export const LogoWrapper = styled(Link)`
   display: flex;
-  height: 29.6px;
+  height: 30px;
   margin-right: 20px;
   text-decoration: none;
+`;
+
+export const Logo = styled.p`
+  padding-top: 2px;
+  ${getFontStyle('title', 'large')}
+  color:${COLORS.primary[10]}
 `;
 
 export const LoggedInUl = styled.ul`

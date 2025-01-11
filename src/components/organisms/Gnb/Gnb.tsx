@@ -3,9 +3,8 @@ import { useLocation } from 'react-router';
 import NavLink from '@/components/atoms/NavLink/NavLink';
 import Notification from '@/components/organisms/Notification/Notification';
 import SearchField from '@/features/search/components/molcules/SearchField/SearchField';
-import Logo from '@/assets/icons/logo.svg';
-import Star from '@/assets/icons/star.svg';
-import Inventory from '@/assets/icons/inventory.svg';
+// import Star from '@/assets/icons/star.svg';
+// import Inventory from '@/assets/icons/inventory.svg';
 import InactiveBell from '@/assets/icons/bell.svg';
 import ActiveBell from '@/assets/icons/bell-filled.svg';
 import { PATH } from '@/constants/path';
@@ -13,7 +12,7 @@ import { useOutSideClick } from '@/hooks/useOutSideClick';
 import * as S from './Gnb.styles';
 
 const Gnb = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isBellOpen, setIsBellOpen] = useState(false);
   const notificationRef = useRef<HTMLDivElement>(null);
   const { pathname } = useLocation();
@@ -29,7 +28,7 @@ const Gnb = () => {
     <S.Container>
       <S.LeftContainer>
         <S.LogoWrapper to="/">
-          <Logo width="88" height="26" />
+          <S.Logo>NANGNIYA</S.Logo>
         </S.LogoWrapper>
         <NavLink to={PATH.BROWSE.FAVORITE} text="찜" isActive={pathname === PATH.BROWSE.FAVORITE} />
         <NavLink to={PATH.BROWSE.MOVIE} text="영화" isActive={pathname === PATH.BROWSE.MOVIE} />
@@ -37,7 +36,17 @@ const Gnb = () => {
       </S.LeftContainer>
       <S.RightContainer>
         <SearchField />
-        {isLoggedIn ? (
+        <S.BellWrapper>
+          <S.Bell onClick={handleBellClick}>
+            {isBellOpen ? <ActiveBell width="24" height="24" /> : <InactiveBell width="24" height="24" />}
+          </S.Bell>
+          {isBellOpen && (
+            <S.NotificationWrapper ref={notificationRef}>
+              <Notification />
+            </S.NotificationWrapper>
+          )}
+        </S.BellWrapper>
+        {/* {isLoggedIn ? (
           <S.LoggedInUl>
             <li>
               <Star width="24" height="24" />
@@ -84,7 +93,7 @@ const Gnb = () => {
               <S.SignUp to={PATH.AUTH.SIGNUP}>회원가입</S.SignUp>
             </li>
           </S.NotLoggedInUl>
-        )}
+        )} */}
       </S.RightContainer>
     </S.Container>
   );

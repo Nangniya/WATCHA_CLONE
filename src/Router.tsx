@@ -3,12 +3,11 @@ import Layout from '@/components/templates/Layout/Layout';
 import Movie from '@/pages/browse/Movie/Movie';
 import Favorite from '@/pages/browse/Favorite/Favorite';
 import Tv from '@/pages/browse/Tv/Tv';
-import People from '@/pages/browse/People/People';
 import MovieDetail from '@/pages/content/MovieDetail/MovieDetail';
 import VideoPlayer from '@/pages/watch/VideoPlayer/VideoPlayer';
 import Search from '@/pages/search/Search';
 import MovieCredits from '@/pages/content/MovieDetail/credits/MovieCredits/MovieCredits';
-import PersonWorks from './pages/browse/People/PersonWorks/PersonWorks';
+import PersonWorks from './pages/people/PersonWorks/PersonWorks';
 
 const Router = () => {
   return (
@@ -20,7 +19,6 @@ const Router = () => {
             <Route path="favorite" element={<Favorite />} />
             <Route path="movie" element={<Movie />} />
             <Route path="tv" element={<Tv />} />
-            <Route path="people" element={<People />} />
           </Route>
           <Route path="content">
             <Route path=":movieId">

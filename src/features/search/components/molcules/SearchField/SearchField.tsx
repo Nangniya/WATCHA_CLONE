@@ -33,7 +33,7 @@ const SearchField = () => {
     <S.Form ref={formRef}>
       <S.Label onClick={handleSearchClick}>
         <Search width="20" height="20" />
-        <S.Input value={value} onChange={handleValueChange} placeholder="콘텐츠, 태그, 인물, 리스트 검색" />
+        <S.Input value={value} onChange={handleValueChange} placeholder="영화, TV, 인물 검색" />
         {value?.length > 0 && (
           <S.ClearBtn onClick={handleClearBtnClick}>
             <X width="20" height="20" />
