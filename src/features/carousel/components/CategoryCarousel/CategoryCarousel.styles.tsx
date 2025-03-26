@@ -3,99 +3,58 @@ import styled from '@emotion/styled';
 import { getFontStyle } from '@/styles/typography';
 import { COLORS } from '@/styles/colors';
 import { CarouselType } from './CategoryCarousel.types';
-import { resetButtonStyle } from '@/styles/common';
 
 export const Container = styled.section`
-  position: relative;
   display: flex;
   flex-direction: column;
-  padding: 0 40px;
   color: ${COLORS.base.white};
-
-  &:hover button {
-    opacity: 1;
-  }
 `;
 
 export const Category = styled.h2`
+  padding: 0 40px;
   ${getFontStyle('title', 'medium')};
 `;
 
-export const SlideContainer = styled.div`
-  display: flex;
-  overflow: hidden;
-`;
-
-export const ArrowWrapper = styled.button`
-  position: absolute;
-  top: 50%;
-  transform: translateY(calc(-50% + 13px));
+export const ArrowWrapper = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 40px;
   color: ${COLORS.gray[90]};
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  ${resetButtonStyle};
-
   &.left {
-    left: 0;
-    svg {
-      transform: rotate(180deg);
-    }
-  }
-
-  &.right {
-    right: 0;
+    transform: rotate(180deg);
   }
 `;
 
-export const SlideUl = styled.ul<{
-  $transform: number;
-  $isTransitioning: boolean;
-  $gap: number;
-}>`
+export const MovieLink = styled(Link)<{ $width: number; $type: CarouselType }>`
   position: relative;
   display: flex;
-  gap: ${({ $gap }) => `${$gap}px`};
-  width: 100%;
-  transform: translateX(${({ $transform }) => `${$transform}px`});
-  transition: ${({ $isTransitioning }) => ($isTransitioning ? 'transform 0.8s ease-in-out' : 'none')};
-`;
-
-export const SlideLi = styled.li<{ $width: number }>`
-  position: relative;
-  flex-shrink: 0;
   width: ${({ $width }) => `${$width}px`};
-  cursor: pointer;
-`;
-
-export const MovieLink = styled(Link)`
+  height: 100%;
+  padding-left: ${({ $type }) => $type === 'ranking' && '50px'};
   text-decoration: none;
   color: inherit;
 `;
 
-export const Image = styled.img<{ $type: CarouselType }>`
-  position: relative; // 쌓임 맥락 만들기 위함
+export const Image = styled.img`
   width: 100%;
-  padding-left: ${({ $type }) => $type === 'ranking' && '50px'};
-  object-fit: cover;
   border-radius: 4px;
-  z-index: 2;
 `;
 
 export const RankNumber = styled.div`
   position: absolute;
+  left: 0;
   bottom: 0;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   ${getFontStyle('display', 'large')};
-  z-index: 1;
 `;
 
 export const ContentTitle = styled.p`
   position: absolute;
+  bottom: 0;
+  padding: 10px;
   ${getFontStyle('body', 'small')};
   color: ${COLORS.base.white};
 `;
