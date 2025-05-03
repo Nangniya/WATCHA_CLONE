@@ -2,65 +2,26 @@ import styled from '@emotion/styled';
 import { getFontStyle } from '@/styles/typography';
 import { COLORS } from '@/styles/colors';
 import { Link } from 'react-router';
-import { resetButtonStyle } from '@/styles/common';
 
-export const CarouselWrapper = styled.section`
-  position: relative;
-  padding: 0 40px;
-
-  &:hover button {
-    opacity: 1;
-  }
-`;
-
-export const MainCarousel = styled.div`
-  overflow: hidden;
-`;
-
-export const ArrowWrapper = styled.button`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+export const ArrowWrapper = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 40px;
   color: ${COLORS.gray[90]};
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  ${resetButtonStyle};
-
   &.left {
-    left: 0;
-    svg {
-      transform: rotate(180deg);
-    }
-  }
-
-  &.right {
-    right: 0;
+    transform: rotate(180deg);
   }
 `;
 
-export const SlideUl = styled.ul<{
-  $isTransitioning: boolean;
-  $gap: number;
-  $transform: number;
-}>`
-  display: flex;
-  gap: ${({ $gap }) => `${$gap}px`};
-  width: 100%;
-  padding: 12px 0;
-  transform: ${({ $transform }) => `translateX(${$transform}px)`};
-  transition: ${({ $isTransitioning }) => ($isTransitioning ? 'transform 1s ease-in-out' : 'none')};
-`;
-
-export const SlideLi = styled.li<{ $width: number }>`
+export const MovieLink = styled(Link)`
   position: relative;
-  flex-shrink: 0;
-  width: ${({ $width }) => `${$width}px`};
+  display: flex;
+  width: 980px;
+  height: 100%;
   border-radius: 8px;
   overflow: hidden;
-
+  text-decoration: none;
   &::after {
     content: '';
     position: absolute;
@@ -70,13 +31,6 @@ export const SlideLi = styled.li<{ $width: number }>`
     height: 50%;
     background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
   }
-`;
-
-export const MovieLink = styled(Link)`
-  display: flex;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
 `;
 
 export const Image = styled.img`
