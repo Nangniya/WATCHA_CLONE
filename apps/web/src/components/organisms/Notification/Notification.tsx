@@ -1,15 +1,13 @@
 import party from '@/assets/images/notification-party.png';
-import { useNotification } from '@/queries/system';
 import * as S from './Notification.styles';
+import { NOTICELIST } from '@/constants/mock';
 
 const Notification = () => {
-  const { data } = useNotification();
-
   return (
     <S.Container>
       <S.H4>소식함</S.H4>
       <ul>
-        {data?.map(({ id, title, subtitle, humanizedReceivedAt }) => (
+        {NOTICELIST?.map(({ id, title, subtitle, humanizedReceivedAt }) => (
           <S.Li key={id}>
             <S.Img src={party} alt="party image" />
             <S.Content>

@@ -1,5 +1,3 @@
-export const MSW_API = 'https://example.com';
-
 export const NOTICELIST = [
   {
     id: '1733893200000000000',

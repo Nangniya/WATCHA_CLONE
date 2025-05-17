@@ -7,7 +7,3 @@ export const movieApi = axios.create({
     Authorization: `Bearer ${process.env.MOVIE_ACCESS_TOKEN}`,
   },
 });
-
-export const mockApi = axios.create({
-  baseURL: 'https://example.com',
-});
