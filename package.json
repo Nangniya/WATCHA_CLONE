@@ -1,66 +1,22 @@
 {
   "name": "WATCHA_CLONE",
   "version": "1.0.0",
-  "description": "watcha clone to study",
   "main": "index.js",
-  "repository": "https://github.com/Nangniya/WATCHA_CLONE.git",
-  "author": "김나연 <apinksky00@gmail.com>",
-  "license": "MIT",
   "scripts": {
-    "start": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "preinstall": "pnpm dlx only-allow pnpm",
+    "build": "pnpm -r build",
+    "dev": "pnpm -r --parallel dev",
+    "lint": "pnpm -r lint",
+    "clean": "pnpm -r clean",
+    "test": "pnpm -r test"
   },
-  "dependencies": {
-    "@babel/runtime": "^7.26.0",
-    "@emotion/react": "^11.13.5",
-    "@emotion/styled": "^11.13.5",
-    "@tanstack/react-query": "^5.62.8",
-    "@tanstack/react-query-devtools": "^5.62.11",
-    "axios": "^1.7.9",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-error-boundary": "^5.0.0",
-    "react-router": "^7.1.1",
-    "react-router-dom": "^7.0.1",
-    "styled-reset": "^4.5.2"
-  },
+  "packageManager": "pnpm@10.9.0",
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
-    "@babel/cli": "^7.25.9",
-    "@babel/core": "^7.26.0",
-    "@babel/plugin-transform-runtime": "^7.25.9",
-    "@babel/preset-env": "^7.26.0",
-    "@babel/preset-react": "^7.25.9",
-    "@babel/preset-typescript": "^7.26.0",
-    "@babel/runtime-corejs3": "^7.26.0",
-    "@eslint/js": "^9.15.0",
-    "@svgr/webpack": "^8.1.0",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@webpack-cli/generators": "^3.0.7",
-    "babel-loader": "^9.2.1",
-    "core-js": "^3.39.0",
-    "css-loader": "^7.1.2",
-    "dotenv-webpack": "^8.1.0",
-    "eslint": "^9.15.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-react": "^7.37.2",
-    "fork-ts-checker-webpack-plugin": "^9.0.2",
-    "globals": "^15.12.0",
-    "html-webpack-plugin": "^5.6.3",
-    "msw": "^2.7.0",
-    "prettier": "^3.4.0",
-    "style-loader": "^4.0.0",
-    "ts-loader": "^9.5.1",
     "typescript": "^5.6.3",
-    "typescript-eslint": "^8.16.0",
-    "webpack": "^5.96.1",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.1.0"
-  },
-  "msw": {
-    "workerDirectory": [
-      "public"
-    ]
+    "prettier": "^3.4.0",
+    "eslint": "^9.15.0"
   }
 }

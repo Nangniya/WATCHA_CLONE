@@ -1,12 +1,10 @@
 import styled from '@emotion/styled';
-import { getFontStyle } from '@/styles/typography';
-import { COLORS } from '@nangniya/ui';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 36px;
-  padding-top: 12px;
+  padding: 12px 40px;
 `;
 
 export const SkeletonContainer = styled.section`

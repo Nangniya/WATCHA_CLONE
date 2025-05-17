@@ -1,6 +1,4 @@
 import styled from '@emotion/styled';
-import { getFontStyle } from '@/styles/typography';
-import { COLORS } from '@nangniya/ui';
 
 export const Container = styled.div`
   display: flex;
