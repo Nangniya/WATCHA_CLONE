@@ -26,6 +26,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Create .env.production file
+        run: |
+          cd apps/web
+          touch .env.production
+          echo "MOVIE_API_URL=${{ secrets.MOVIE_API_URL }}" >> .env.production
+          echo "MOVIE_ACCESS_TOKEN=${{ secrets.MOVIE_ACCESS_TOKEN }}" >> .env.production
+          echo "IMAGE_URL=${{ secrets.IMAGE_URL }}" >> .env.production
+
       - name: Build packages
         run: |
           cd packages/ui
@@ -33,9 +41,7 @@ jobs:
 
       - name: Build web app
         env:
-          MOVIE_API_URL: ${{ secrets.MOVIE_API_URL }}
-          MOVIE_ACCESS_TOKEN: ${{ secrets.MOVIE_ACCESS_TOKEN }}
-          IMAGE_URL: ${{ secrets.IMAGE_URL }}
+          APP_PHASE: production
         run: |
           cd apps/web
           pnpm build
